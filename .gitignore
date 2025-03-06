@@ -10,7 +10,7 @@ lerna-debug.log*
 node_modules
 firebase
 dist-ssr
-.env
+*.env
 *.local
 *.firebaserc
 firebase.json
