@@ -8,8 +8,11 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+firebase
 dist-ssr
 *.local
+*.firebaserc
+firebase.json
 
 # Editor directories and files
 .vscode/*
