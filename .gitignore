@@ -10,9 +10,11 @@ lerna-debug.log*
 node_modules
 firebase
 dist-ssr
+.env
 *.local
 *.firebaserc
 firebase.json
+
 
 # Editor directories and files
 .vscode/*
