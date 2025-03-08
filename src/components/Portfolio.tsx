@@ -10,15 +10,15 @@ const clients = [
     roi: "+150% ROI"
   },
   {
-    name: "Clinica Dentaria",
+    name: "Landing Page Clinica Dentaria",
     description: "Crescimento de 40% no aumento de clicks sobre a clinica",
     image: "./src/img/dentista.png",
     roi: "+180% ROI"
   },
   {
-    name: "Page para gerenciamento",
-    description: "possibilitou o monitoramento em tempo real da produção, otimizou a gestão de ordens de serviço em 200%",
-    image: "./src/img/sisgrafex.jpg",
+    name: "Landing Page Camping",
+    description: "Cresimento de 50% na conversão de novos hospedes",
+    image: "./src/img/camping.png",
     roi: "+200% ROI"
   }
 ];
@@ -34,7 +34,7 @@ export function Portfolio() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          Cases de Sucesso
+          Landing Pages de Sucesso
         </motion.h2>
         <div className="grid md:grid-cols-3 gap-8">
           {clients.map((client, index) => (

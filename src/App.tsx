@@ -8,6 +8,7 @@ import { FAQ } from './components/FAQ';
 import { ContactForm } from './components/ContactForm';
 import { Footer } from './components/Footer';
 import { Advantages } from './components/Advantages';
+import { DeveloperCredits } from './components/DeveloperCredits';
 import { initGA, trackPageEntrance } from './utils/analytics';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
   return (
     <div className="min-h-screen bg-white">
       <Hero />
+      <DeveloperCredits />
       <Advantages />
       <Benefits />
       <Process />
