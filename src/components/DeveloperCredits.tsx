@@ -14,7 +14,7 @@ export function DeveloperCredits() {
           transition={{ duration: 0.5 }}
         >
           <motion.img
-            src="./src/img/foto.jpg"
+            src="./src/img/foto_perfil.jpeg"
             alt="Ítalo Sol - Desenvolvedor Web"
             className="w-24 h-24 rounded-full object-cover shadow-lg mb-4"
             whileHover={{ scale: 1.05 }}
