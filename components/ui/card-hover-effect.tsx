@@ -81,14 +81,16 @@ export const Card = ({
 export const CardTitle = ({
   className,
   children,
+  as: Component = "h3", // Default to h3 instead of h4
 }: {
   className?: string;
   children: React.ReactNode;
+  as?: "h2" | "h3" | "h4"; // Allow heading level customization
 }) => {
   return (
-    <h4 className={cn("text-zinc-100 font-bold tracking-wide mt-4", className)}>
+    <Component className={cn("text-zinc-100 font-bold tracking-wide mt-4", className)}>
       {children}
-    </h4>
+    </Component>
   );
 };
 export const CardDescription = ({
