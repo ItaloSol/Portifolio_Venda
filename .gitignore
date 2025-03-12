@@ -33,3 +33,29 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Firebase
+.firebase/
+firebase-debug.log
+firebase-debug.*.log
+.firebaserc
+ui-debug.log
+*-debug.log
+
+# Firebase Functions
+functions/node_modules/
+functions/.env
+functions/.runtimeconfig.json
+functions/lib/
+functions/coverage/
+
+# Firebase Hosting cache
+.firebase/hosting.*.cache
+
+# Firebase Local Emulator
+*-export/
+emulators/
+
+# Firebase Service Account Keys
+*-service-account*.json
+serviceAccountKey.json
