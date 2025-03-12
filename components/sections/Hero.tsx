@@ -3,6 +3,7 @@ import { BackgroundBeams } from "@/components/ui/aceternity/background-beams";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Vortex } from "../ui/vortex";
+import Image from "next/image";
 
 export function Hero() {
   const whatsappMessage = encodeURIComponent("Olá! Gostaria de solicitar uma proposta para uma landing page.");
@@ -42,9 +43,13 @@ export function Hero() {
           </div>
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl blur-3xl opacity-30" />
-            <img
-              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop"
+            <Image
+              src="/hero-image.jpg"
               alt="Landing Page Mockup"
+              width={2426}
+              height={1617}
+              priority
+              quality={85}
               className="relative rounded-xl shadow-2xl"
             />
           </div>

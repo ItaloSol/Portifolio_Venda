@@ -10,28 +10,28 @@ const cases = [
     description: "Aumento de 150% nas conversões após implementação da nova landing page de produtos",
     link: 'https://www.grafex.eb.mil.br/portifolio/',
     roi: "+150% ROI",
-    image: "https://raw.githubusercontent.com/ItaloSol/imagens_links_API/refs/heads/main/portifolio_grafex.png",
+    image: "/cases/portifolio_grafex.png",
   },
   {
     title: "Landing Page Clinica Dentaria",
     description: "Crescimento de 40% no aumento de clicks sobre a clinica",
     link: 'https://sorrirmais.netlify.app/',
     roi: "+180% ROI",
-    image: "https://raw.githubusercontent.com/ItaloSol/imagens_links_API/refs/heads/main/dentista.png",
+    image: "/cases/dentista.png",
   },
   {
     title: "Landing Page Camping",
     description: "Cresimento de 50% na conversão de novos hospedes",
     link: 'https://pousadabjnoprice.netlify.app/',
     roi: "+200% ROI",
-    image: "https://raw.githubusercontent.com/ItaloSol/imagens_links_API/refs/heads/main/camping.png",
+    image: "/cases/camping.png",
   },
   {
     title: "Landing Page Chalé",
     description: "Cresimento de 55% na conversão de novos hospedes",
     link: 'https://pousadabvnoprice.netlify.app/',
     roi: "+200% ROI",
-    image: "https://raw.githubusercontent.com/ItaloSol/imagens_links_API/refs/heads/main/chales.png",
+    image: "/cases/chales.png",
   },
 ];
 
@@ -50,10 +50,14 @@ export function Cases() {
                 <CardBody className="relative group/card h-full rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 shadow-xl overflow-hidden transition-all duration-500 hover:border-blue-500/50">
                   <CardItem translateZ={50} className="w-full">
                     <div className="relative h-52 w-full overflow-hidden">
-                      <img
+                      <Image
                         src={case_.image}
                         alt={case_.title}
-                        className="w-full h-full object-cover object-center rounded-t-xl group-hover/card:scale-110 transition-transform duration-700 ease-out"
+                        width={400}
+                        height={208}
+                        quality={75}
+                        loading="lazy"
+                        className="object-cover object-center rounded-t-xl group-hover/card:scale-110 transition-transform duration-700 ease-out"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500" />
                     </div>
