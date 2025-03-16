@@ -9,6 +9,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { fadeIn } from '@/lib/animations';
 import { initializeAnalytics } from '@/lib/firebase';
 import { logEvent } from 'firebase/analytics';
+import { Questions } from '@/components/sections/Questions';
+import { ImmersiveQuestions } from '@/components/sections/ImmersiveQuestions';
 
 // Componentes carregados dinamicamente
 const MacbookScrollDemo = dynamic(
@@ -87,6 +89,7 @@ export default function Home() {
         >
           <Navigation isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
           <Hero />
+          <Questions />
           <Stats />
           <Suspense fallback={<motion.div className="h-screen" />}>
             <motion.div onViewportEnter={() => trackSectionView('benefits')}>
@@ -98,6 +101,7 @@ export default function Home() {
             <motion.div onViewportEnter={() => trackSectionView('work-process')}>
               <WorkProcess />
             </motion.div>
+            <ImmersiveQuestions />
             <motion.div onViewportEnter={() => trackSectionView('cases')}>
               <Cases />
             </motion.div>
