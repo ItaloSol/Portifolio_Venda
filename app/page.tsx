@@ -1,5 +1,5 @@
 "use client";
-
+// inports dos componetes
 import dynamic from 'next/dynamic';
 import { useState, useEffect, Suspense } from 'react';
 import { Navigation } from '@/components/sections/Navigation';
