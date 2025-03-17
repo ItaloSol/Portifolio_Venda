@@ -14,7 +14,7 @@ const workProcess = [
   },
   {
     title: "Desenvolvimento",
-    items: ["Design responsivo", "Otimização SEO", "Testes A/B"],
+    items: ["Design responsivo", "Otimização SEO", "Copywriting persuasivo"],
     icon: Code2,
   },
   {

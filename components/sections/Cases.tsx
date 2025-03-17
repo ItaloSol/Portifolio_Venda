@@ -71,7 +71,7 @@ export function Cases() {
                     </CardItem>
                     <CardItem translateZ={60}>
                       <div className="inline-flex items-center px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20">
-                        <span className="text-blue-400 font-semibold text-sm">{case_.roi}</span>
+                        <span className="text-blue-400 font-semibold text-sm">Clique para ver</span>
                       </div>
                     </CardItem>
                   </div>
