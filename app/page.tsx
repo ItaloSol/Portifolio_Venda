@@ -11,7 +11,7 @@ import { initializeAnalytics } from '@/lib/firebase';
 import { logEvent } from 'firebase/analytics';
 import { Questions } from '@/components/sections/Questions';
 import { ImmersiveQuestions } from '@/components/sections/ImmersiveQuestions';
-
+import { Gallery } from '@/components/sections/Gallery';
 // Componentes carregados dinamicamente
 const MacbookScrollDemo = dynamic(
   () => import('@/components/sections/Benefits').then(mod => mod.MacbookScrollDemo),
@@ -92,9 +92,7 @@ export default function Home() {
           <Questions />
           <Stats />
           <Suspense fallback={<motion.div className="h-screen" />}>
-            <motion.div onViewportEnter={() => trackSectionView('benefits')}>
-              <MacbookScrollDemo />
-            </motion.div>
+            
             <motion.div onViewportEnter={() => trackSectionView('why-choose-us')}>
               <WhyChooseUs />
             </motion.div>
@@ -102,9 +100,7 @@ export default function Home() {
               <WorkProcess />
             </motion.div>
             <ImmersiveQuestions />
-            <motion.div onViewportEnter={() => trackSectionView('cases')}>
-              <Cases />
-            </motion.div>
+            <Gallery />
             <motion.div onViewportEnter={() => trackSectionView('testimonials')}>
               <AnimatedTestimonials />
             </motion.div>
