@@ -1,46 +1,59 @@
 "use client";
-// inports dos componetes
+
 import dynamic from 'next/dynamic';
 import { useState, useEffect, Suspense } from 'react';
-import { Navigation } from '@/components/sections/Navigation';
-import { Hero } from '@/components/sections/Hero';
-import { Stats } from '@/components/sections/Stats';
 import { motion, AnimatePresence } from 'framer-motion';
 import { fadeIn } from '@/lib/animations';
 import { initializeAnalytics } from '@/lib/firebase';
 import { logEvent } from 'firebase/analytics';
+
+// Critical path components loaded immediately
+import { Navigation } from '@/components/sections/Navigation';
+import { Hero } from '@/components/sections/Hero';
+import { Stats } from '@/components/sections/Stats';
 import { Questions } from '@/components/sections/Questions';
 import { ImmersiveQuestions } from '@/components/sections/ImmersiveQuestions';
-import { Gallery } from '@/components/sections/Gallery';
-// Componentes carregados dinamicamente
-const MacbookScrollDemo = dynamic(
-  () => import('@/components/sections/Benefits').then(mod => mod.MacbookScrollDemo),
-  { loading: () => <motion.div className="h-screen" />, ssr: false }
+// Components loaded dynamically with loading states
+
+
+const Gallery = dynamic(
+  () => import('@/components/sections/Gallery').then(mod => mod.Gallery),
+  { loading: () => <motion.div className="h-screen animate-pulse bg-gray-900" /> }
 );
 
-const WhyChooseUs = dynamic(
-  () => import('@/components/sections/WhyChooseUs').then(mod => mod.WhyChooseUs)
+const MacbookScrollDemo = dynamic(
+  () => import('@/components/sections/Benefits').then(mod => mod.MacbookScrollDemo),
+  { loading: () => <motion.div className="h-screen animate-pulse bg-gray-900" />, ssr: false }
 );
+
 const WorkProcess = dynamic(
-  () => import('@/components/sections/WorkProcess').then(mod => mod.WorkProcess)
+  () => import('@/components/sections/WorkProcess').then(mod => mod.WorkProcess),
+  { loading: () => <motion.div className="h-screen animate-pulse bg-gray-900" /> }
 );
-const Cases = dynamic(
-  () => import('@/components/sections/Cases').then(mod => mod.Cases)
-);
+
 const AnimatedTestimonials = dynamic(
-  () => import('@/components/sections/DevCredits').then(mod => mod.AnimatedTestimonialsDemo)
+  () => import('@/components/sections/DevCredits').then(mod => mod.AnimatedTestimonialsDemo),
+  { loading: () => <motion.div className="h-screen animate-pulse bg-gray-900" /> }
 );
+
 const Pricing = dynamic(
-  () => import('@/components/sections/Pricing').then(mod => mod.Pricing)
+  () => import('@/components/sections/Pricing').then(mod => mod.Pricing),
+  { loading: () => <motion.div className="h-screen animate-pulse bg-gray-900" /> }
 );
+
 const FAQ = dynamic(
-  () => import('@/components/sections/FAQ').then(mod => mod.FAQ)
+  () => import('@/components/sections/FAQ').then(mod => mod.FAQ),
+  { loading: () => <motion.div className="h-screen animate-pulse bg-gray-900" /> }
 );
+
 const ContactForm = dynamic(
-  () => import('@/components/sections/ContactForm').then(mod => mod.ContactForm)
+  () => import('@/components/sections/ContactForm').then(mod => mod.ContactForm),
+  { loading: () => <motion.div className="h-screen animate-pulse bg-gray-900" /> }
 );
+
 const Footer = dynamic(
-  () => import('@/components/sections/Footer').then(mod => mod.Footer)
+  () => import('@/components/sections/Footer').then(mod => mod.Footer),
+  { loading: () => <motion.div className="h-screen animate-pulse bg-gray-900" /> }
 );
 
 export default function Home() {
@@ -51,17 +64,21 @@ export default function Home() {
   useEffect(() => {
     setIsLoaded(true);
     
-    // Initialize analytics
+    // Initialize analytics asynchronously
     const setupAnalytics = async () => {
-      const analyticsInstance = await initializeAnalytics();
-      setAnalytics(analyticsInstance as any);
-      
-      if (analyticsInstance) {
-        logEvent(analyticsInstance, 'page_view', {
-          page_title: 'Home',
-          page_location: window.location.href,
-          page_path: window.location.pathname,
-        });
+      try {
+        const analyticsInstance = await initializeAnalytics();
+        setAnalytics(analyticsInstance as any);
+        
+        if (analyticsInstance) {
+          logEvent(analyticsInstance, 'page_view', {
+            page_title: 'Home',
+            page_location: window.location.href,
+            page_path: window.location.pathname,
+          });
+        }
+      } catch (error) {
+        console.error('Failed to initialize analytics:', error);
       }
     };
 
@@ -91,15 +108,13 @@ export default function Home() {
           <Hero />
           <Questions />
           <Stats />
-          <Suspense fallback={<motion.div className="h-screen" />}>
-            
-            <motion.div onViewportEnter={() => trackSectionView('why-choose-us')}>
-              <WhyChooseUs />
-            </motion.div>
+          <Suspense fallback={<motion.div className="h-screen animate-pulse bg-gray-900" />}>
             <motion.div onViewportEnter={() => trackSectionView('work-process')}>
               <WorkProcess />
             </motion.div>
-            <ImmersiveQuestions />
+            <Suspense fallback={<motion.div className="h-screen animate-pulse bg-gray-900" />}>
+              <ImmersiveQuestions />
+            </Suspense>
             <Gallery />
             <motion.div onViewportEnter={() => trackSectionView('testimonials')}>
               <AnimatedTestimonials />
