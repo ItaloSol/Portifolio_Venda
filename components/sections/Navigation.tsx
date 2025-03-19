@@ -51,11 +51,11 @@ export function Navigation({ isMenuOpen, setIsMenuOpen }: NavigationProps) {
               Benefícios
             </a>
             <a 
-              href="#cases" 
-              onClick={(e) => handleScroll(e, "cases")}
+              href="#Gallery" 
+              onClick={(e) => handleScroll(e, "Gallery")}
               className="hover:text-blue-400 transition-colors duration-300"
             >
-              Cases
+              Portfólio
             </a>
             <a 
               href="#pricing" 

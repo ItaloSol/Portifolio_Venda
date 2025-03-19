@@ -58,7 +58,7 @@ export function Questions() {
               repeat: Infinity,
               repeatType: "loop",
               ease: "linear",
-              duration: 30,
+              duration: 10,
             }}
           >
             {[...questions, ...questions].map((item, index) => (
