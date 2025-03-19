@@ -9,35 +9,39 @@ import {
 const faqs = [
   {
     question: "Como funciona a fase de Análise?",
-    answer: "Na fase de análise, realizamos um estudo aprofundado do seu mercado, identificamos seu público-alvo ideal e analisamos a concorrência para criar uma estratégia efetiva.",
+    answer: "Na fase de análise, conduzimos um estudo completo do mercado em que sua empresa atua. Identificamos quem é o seu público-alvo ideal, estudamos as estratégias da concorrência e coletamos informações essenciais para desenvolver uma estratégia personalizada que garanta resultados concretos.",
   },
   {
     question: "O que envolve a fase de Estratégia?",
-    answer: "A fase de estratégia inclui o planejamento detalhado do conteúdo, definição de métricas de sucesso (KPIs) e seleção das tecnologias mais adequadas para seu projeto.",
+    answer: "A fase de estratégia é dedicada ao planejamento meticuloso de cada etapa do projeto. Isso inclui a criação de um cronograma detalhado para conteúdo, a definição de métricas claras de sucesso (KPIs) e a escolha das tecnologias mais inovadoras para atender às necessidades específicas do seu projeto.",
+  },
+  {
+    question: "Como funciona a fase de Pagamento?",
+    answer: "Durante a fase de pagamento, solicitamos um adiantamento correspondente a 30% do valor total para dar início ao projeto. O restante é pago na entrega, com diversas opções de pagamento disponíveis, incluindo débito ou PIX à vista, ou parcelamento no cartão de crédito (sujeito a taxas da maquininha).",
   },
   {
     question: "Como é realizada a fase de Desenvolvimento?",
-    answer: "Durante o desenvolvimento, criamos um design responsivo, implementamos práticas de SEO e realizamos testes A/B para garantir a melhor performance.",
+    answer: "Na fase de desenvolvimento, focamos em criar uma experiência única para os usuários. Desenvolvemos um design responsivo que se adapta perfeitamente a qualquer dispositivo, aplicamos as melhores práticas de SEO e realizamos testes A/B para garantir que sua landing page entregue o máximo desempenho e conversões.",
   },
   {
     question: "O que acontece na fase de Lançamento?",
-    answer: "No lançamento, publicamos sua landing page, iniciamos o monitoramento de métricas e realizamos ajustes finais para otimizar o desempenho.",
+    answer: "Ao chegarmos à fase de lançamento, publicamos sua landing page em ambiente ao vivo. Também iniciamos o monitoramento de métricas de desempenho e realizamos ajustes finais para garantir que tudo esteja perfeitamente otimizado desde o primeiro momento.",
   },
   {
     question: "O que é otimização para SEO?",
-    answer: "A otimização para SEO inclui técnicas para melhorar o posicionamento da sua página nos resultados de busca, incluindo otimização de conteúdo e performance.",
+    answer: "SEO, ou otimização para mecanismos de busca, é o processo de melhorar sua página para que ela alcance posições mais altas nos resultados de busca. Isso envolve otimizar o conteúdo, melhorar a performance geral do site e utilizar palavras-chave estratégicas para atrair mais tráfego qualificado.",
   },
   {
     question: "Quanto tempo leva para criar uma landing page?",
-    answer: "O tempo médio é de 72 horas após a aprovação do projeto, podendo variar de acordo com a complexidade e personalizações necessárias.",
+    answer: "A criação de uma landing page geralmente leva em média 72 horas após a aprovação do projeto, mas o prazo pode variar dependendo do nível de personalização e da complexidade do design solicitado.",
   },
   {
     question: "As landing pages são otimizadas para SEO?",
-    answer: "Sim, todas as nossas landing pages são desenvolvidas seguindo as melhores práticas de SEO para garantir boa visibilidade nos mecanismos de busca.",
+    answer: "Sim, todas as landing pages que criamos seguem rigorosamente as melhores práticas de SEO. Nosso objetivo é garantir que seu site tenha visibilidade máxima nos mecanismos de busca, aumentando o tráfego e as conversões.",
   },
   {
     question: "Posso solicitar alterações após o lançamento?",
-    answer: "Sim, oferecemos período de suporte e revisões conforme o plano escolhido, permitindo ajustes e otimizações após o lançamento.",
+    answer: "Sem dúvida! Após o lançamento, oferecemos um período de suporte que inclui revisões e ajustes, conforme o plano escolhido. Isso garante que sua landing page esteja sempre alinhada com seus objetivos de negócio.",
   },
 ];
 
