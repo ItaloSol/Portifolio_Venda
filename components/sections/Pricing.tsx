@@ -144,10 +144,10 @@ export function Pricing() {
                   className={`w-full ${
                     plan.highlighted
                       ? "bg-gradient-to-r from-blue-500 to-purple-500"
-                      : "bg-white/10 hover:bg-white/20"
+                      : "bg-white/10 hover:bg-blue-800"
                   }`}
                 >
-                  Começar Agora
+                  {plan.highlighted ? "Quero Aumentar Minhas Vendas" : "Solicitar Proposta"}
                 </Button>
               </Link>
             </div>

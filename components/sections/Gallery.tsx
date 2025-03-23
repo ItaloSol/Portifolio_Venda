@@ -149,7 +149,7 @@ export function Gallery() {
           <h1 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
             Conheça um Pouco do Portfólio
           </h1>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="text-gray-50 max-w-2xl mx-auto">
             Explore nossa coleção de landing pages personalizadas, desde designs minimalistas até experiências interativas premium. Cada projeto é cuidadosamente desenvolvido para maximizar conversões e engajamento.
           </p>
         </div>
