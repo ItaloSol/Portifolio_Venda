@@ -120,14 +120,9 @@ export default function Home() {
               <WorkProcess />
             </motion.div>
 
-            <motion.div
-              whileInView={{ x: 0, opacity: 1 }}
-              initial={{ x: "100%", opacity: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              viewport={{ once: true }}
-            >
+          
               <ImmersiveQuestions />
-            </motion.div>
+            
 
             <motion.div
               whileInView={{ x: 0, opacity: 1 }}
