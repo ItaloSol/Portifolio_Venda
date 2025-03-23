@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 const plans = [
+  
   {
     name: "Redesing",
     price: "R$ 430",
@@ -91,7 +92,7 @@ export function Pricing() {
         </div>
         <div className="flex items-center gap-4 text-gray-400" role="note">
           <div className="h-px flex-1 bg-white/20" aria-hidden="true" />
-          <span>Os valores podem ser ajustados e reduzidos de acordo com suas necessidades específicas</span>
+          <span>Parcerias de ganho mutúo tendem a conseguir um preço menor que a tabela de preços fixos!</span>
           <div className="h-px flex-1 bg-white/20" aria-hidden="true" />
         </div>
         <div 
