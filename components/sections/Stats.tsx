@@ -1,5 +1,7 @@
 "use client";
 import { HoverEffect } from "../ui/card-hover-effect";
+import { motion } from "framer-motion";
+
 
 const statsItems = [
   { title: "Em conversões", description: "Aumento significativo nas taxas de conversão",link: 'https://google1.com', value: "+300%" },
@@ -12,10 +14,16 @@ const statsItems = [
 
 export function Stats() {
   return (
-    <section id="benefits" className="relative py-20 bg-black/50">
+    <motion.section
+      id="benefits"
+      className="relative py-20 bg-black/50"
+      initial={{ x: "-100%", opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <HoverEffect items={statsItems} className="grid-cols-2 md:grid-cols-3" />
       </div>
-    </section>
+    </motion.section>
   );
 }

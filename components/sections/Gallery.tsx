@@ -137,12 +137,22 @@ export function Gallery() {
             </button>
           )}
         </div>
+       <span className="block w-full h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent my-4 opacity-50" />
+
       </motion.div>
     );
   };
 
   return (
     <section className="py-20 bg-black">
+      <div className="text-center mb-16">
+          <h1 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
+            Conheça um Pouco do Portfólio
+          </h1>
+          <p className="text-gray-400 max-w-2xl mx-auto">
+            Explore nossa coleção de landing pages personalizadas, desde designs minimalistas até experiências interativas premium. Cada projeto é cuidadosamente desenvolvido para maximizar conversões e engajamento.
+          </p>
+        </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {Object.entries(photos.reduce((acc, photo) => {

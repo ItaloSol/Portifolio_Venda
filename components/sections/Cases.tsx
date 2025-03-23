@@ -46,8 +46,10 @@ export function Cases() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {cases.map((case_, index) => (
             <CardContainer key={index} className="py-8">
+              
               <Link href={case_.link} target="_blank" rel="noopener noreferrer" className="block">
                 <CardBody className="relative group/card h-full rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 shadow-xl overflow-hidden transition-all duration-500 hover:border-blue-500/50">
+               
                   <CardItem translateZ={50} className="w-full">
                     <div className="relative h-52 w-full overflow-hidden">
                       <Image

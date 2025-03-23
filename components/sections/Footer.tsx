@@ -46,6 +46,13 @@ export function Footer() {
               >
                 LinkedIn
               </Link>
+              <Link
+                href="https://www.instagram.com/landingpagecraft/"
+                target="_blank"
+                className="text-gray-400 hover:text-white text-sm"
+              >
+                Instagram
+              </Link>
             </div>
           </div>
         </div>

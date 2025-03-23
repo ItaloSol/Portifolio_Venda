@@ -1,9 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
+import { useRef, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import { useDrag } from "@use-gesture/react";
 
 const questions = [
   {
@@ -35,35 +36,45 @@ const questions = [
 
 export function Questions() {
   const [isPaused, setIsPaused] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const containerRef = useRef(null);
+  const controls = useAnimation();
+
+  const bind = useDrag(({ offset: [x], movement: [mx], cancel, direction }) => {
+    if (Math.abs(mx) > 50) {
+      setCurrentIndex((prevIndex) => {
+        let newIndex = prevIndex + (direction[0] > 0 ? -1 : 1);
+        return Math.max(0, Math.min(newIndex, questions.length - 1));
+      });
+    }
+  }, { axis: "x" });
 
   const whatsappMessage = encodeURIComponent("Olá! Gostaria de solicitar uma proposta para uma landing page.");
   const whatsappLink = `https://wa.me/5561993003980?text=${whatsappMessage}`;
 
   return (
-    <section className="relative py-20 bg-black overflow-hidden">
+    <motion.section
+      id="Questions"
+      className="relative py-20 bg-black overflow-hidden"
+      initial={{ x: "100%", opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
       <div
         ref={containerRef}
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
-        <div className="overflow-hidden relative">
+        <div className="overflow-hidden relative cursor-grab" {...bind()}>
           <motion.div
             className="flex"
-            animate={{
-              x: isPaused ? 0 : ["0%", "-100%"],
-            }}
-            transition={{
-              repeat: Infinity,
-              repeatType: "loop",
-              ease: "linear",
-              duration: 10,
-            }}
+            animate={{ x: -currentIndex * 320 }}
+            transition={{ ease: "easeOut", duration: 0.5 }}
           >
-            {[...questions, ...questions].map((item, index) => (
+            {questions.map((item, index) => (
               <motion.div
-                key={`${item.id}-${index}`}
+                key={item.id}
                 className="flex-shrink-0 w-[300px] md:w-[400px] mx-4"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
@@ -86,6 +97,18 @@ export function Questions() {
           </motion.div>
         </div>
 
+        <div className="flex justify-center gap-4 mt-6">
+          {questions.map((_, index) => (
+            <button
+              type="button"
+              title={`Go to slide ${index + 1}`}
+              key={index}
+              className={`w-4 h-4 rounded-full ${currentIndex === index ? "bg-white" : "bg-gray-500"}`}
+              onClick={() => setCurrentIndex(index)}
+            />
+          ))}
+        </div>
+
         <motion.div
           className="mt-12 text-center"
           initial={{ opacity: 0, y: 20 }}
@@ -102,6 +125,6 @@ export function Questions() {
           </Link>
         </motion.div>
       </div>
-    </section>
+      </motion.section>
   );
 }
