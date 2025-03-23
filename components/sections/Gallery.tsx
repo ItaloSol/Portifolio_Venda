@@ -144,7 +144,7 @@ export function Gallery() {
   };
 
   return (
-    <section className="py-20 bg-black">
+    <section id="Gallery" className="py-20 bg-black">
       <div className="text-center mb-16">
           <h1 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
             Conheça um Pouco do Portfólio

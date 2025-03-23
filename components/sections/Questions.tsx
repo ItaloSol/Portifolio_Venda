@@ -53,13 +53,7 @@ export function Questions() {
   const whatsappLink = `https://wa.me/5561993003980?text=${whatsappMessage}`;
 
   return (
-    <motion.section
-      id="Questions"
-      className="relative py-20 bg-black overflow-hidden"
-      initial={{ x: "100%", opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-    >
+    <section className="relative py-20 bg-black overflow-hidden">
       <div
         ref={containerRef}
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -125,6 +119,6 @@ export function Questions() {
           </Link>
         </motion.div>
       </div>
-      </motion.section>
+    </section>
   );
 }

@@ -90,45 +90,45 @@ export function Navigation({ isMenuOpen, setIsMenuOpen }: NavigationProps) {
       </div>
 
       {isMenuOpen && (
-        <div className="md:hidden bg-black/90 backdrop-blur-md">
-          <div className="px-2 pt-2 pb-3 space-y-1">
+        <div className="md:hidden fixed top-16 left-0 right-0 bg-black/90 backdrop-blur-md max-h-[calc(100vh-4rem)] overflow-y-auto">
+          <div className="px-4 py-4 space-y-3">
             <a 
-              href="#" 
-              onClick={(e) => handleScroll(e, "home")}
-              className="block px-3 py-2 hover:bg-white/10 rounded-md transition-colors duration-300"
+              href="#Home" 
+              onClick={(e) => handleScroll(e, "Home")}
+              className="block w-full px-4 py-3 hover:bg-white/10 rounded-md transition-colors duration-300 text-center"
             >
               Home
             </a>
             <a 
               href="#benefits" 
               onClick={(e) => handleScroll(e, "benefits")}
-              className="block px-3 py-2 hover:bg-white/10 rounded-md transition-colors duration-300"
+              className="block w-full px-4 py-3 hover:bg-white/10 rounded-md transition-colors duration-300 text-center"
             >
               Benefícios
             </a>
             <a 
-              href="#cases" 
-              onClick={(e) => handleScroll(e, "cases")}
-              className="block px-3 py-2 hover:bg-white/10 rounded-md transition-colors duration-300"
+              href="#Gallery" 
+              onClick={(e) => handleScroll(e, "Gallery")}
+              className="block w-full px-4 py-3 hover:bg-white/10 rounded-md transition-colors duration-300 text-center"
             >
-              Cases
+              Portfólio
             </a>
             <a 
               href="#pricing" 
               onClick={(e) => handleScroll(e, "pricing")}
-              className="block px-3 py-2 hover:bg-white/10 rounded-md transition-colors duration-300"
+              className="block w-full px-4 py-3 hover:bg-white/10 rounded-md transition-colors duration-300 text-center"
             >
               Preços
             </a>
             <a 
               href="#contact" 
               onClick={(e) => handleScroll(e, "contact")}
-              className="block px-3 py-2 hover:bg-white/10 rounded-md transition-colors duration-300"
+              className="block w-full px-4 py-3 hover:bg-white/10 rounded-md transition-colors duration-300 text-center"
             >
               Contato
             </a>
-            <Link href={whatsappLink} target="_blank" className="block">
-              <Button className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 transition-all duration-300">
+            <Link href={whatsappLink} target="_blank" className="block mt-4">
+              <Button className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 transition-all duration-300 py-6">
                 Solicite Proposta
               </Button>
             </Link>

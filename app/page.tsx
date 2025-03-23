@@ -86,7 +86,7 @@ export default function Home() {
           initial="hidden"
           animate="visible"
           variants={fadeIn}
-          className="min-h-screen bg-black text-white relative"
+          className="min-h-screen bg-black text-white relative overflow-x-hidden"
         >
           <Navigation isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
           <Hero />
