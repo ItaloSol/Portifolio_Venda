@@ -5,9 +5,10 @@ import Link from "next/link";
 const plans = [
   
   {
-    name: "Redesing",
-    price: "R$ 430",
+    name: "Pagina Simples",
+    price: "Apartir de R$290 a R$430",
     features: [
+      "Recomendado para pequenos projetos",
       "Design responsivo mobile-first",
       "Elementos de urgência/escassez",
       "Formulários otimizados",
@@ -20,7 +21,7 @@ const plans = [
   },
   {
     name: "Básico",
-    price: "R$ 897",
+    price: "Apartir de R$650 a R$ 897",
     features: [
       "Landing page otimizada",
       "Design responsivo",
@@ -52,7 +53,7 @@ const plans = [
   },
   {
     name: "Premium",
-    price: "Faça um orçamento",
+    price: "De R$2.600 até R$3.897",
     features: [
       "Tudo do Profissional +",
       "Consultoria estratégica",
@@ -74,7 +75,7 @@ const plans = [
 
 export function Pricing() {
   const getWhatsAppLink = (plan: string, price: string) => {
-    const message = encodeURIComponent(`Olá! Gostaria de contratar o plano ${plan} por ${price} para minha landing page.`);
+    const message = encodeURIComponent(`Olá! Gostaria de contratar o plano ${plan} ${price} para minha landing page.`);
     return `https://wa.me/5561993003980?text=${message}`;
   };
 
