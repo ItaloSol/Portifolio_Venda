@@ -16,14 +16,14 @@ export function LeadModal({ isOpen: controlledIsOpen, onClose }: LeadModalProps)
     name: '',
     phone: ''
   });
+  const [hasInitializedPixel, setHasInitializedPixel] = useState(false);
 
   useEffect(() => {
     setIsOpen(controlledIsOpen);
   }, [controlledIsOpen]);
 
   useEffect(() => {
-    // Track modal view only when it becomes visible
-    if (isOpen && (window as any).fbq) {
+    if (isOpen && !hasInitializedPixel && (window as any).fbq) {
       // Track modal view once
       (window as any).fbq('track', 'ViewContent', {
         content_name: 'Lead Modal',
@@ -31,6 +31,8 @@ export function LeadModal({ isOpen: controlledIsOpen, onClose }: LeadModalProps)
         content_type: 'form',
         status: 'visible'
       });
+
+      setHasInitializedPixel(true);
     }
   }, [isOpen]);
 
