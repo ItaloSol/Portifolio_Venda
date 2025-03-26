@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, useEffect } from "react";
 import Link from "next/link";
 
 export function ContactForm() {
@@ -16,6 +16,22 @@ export function ContactForm() {
     lgpd: false
   });
 
+  const [hasInitializedPixel, setHasInitializedPixel] = useState(false);
+
+  useEffect(() => {
+    if (hasInitializedPixel || !(window as any).fbq) return;
+    
+    // Track form view once
+    (window as any).fbq('track', 'ViewContent', {
+      content_name: 'Contact Form',
+      content_category: 'Lead Generation',
+      content_type: 'form',
+      status: 'visible'
+    });
+
+    setHasInitializedPixel(true);
+  }, [hasInitializedPixel]);
+
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     const message = encodeURIComponent(
@@ -24,6 +40,19 @@ export function ContactForm() {
       `Telefone: ${formData.phone}\n` +
       `Orçamento desejado: ${formData.budget}`
     );
+
+    // Track form submission
+    if ((window as any).fbq) {
+      (window as any).fbq('track', 'Lead', {
+        content_name: 'Contact Form',
+        content_category: 'Lead Generation',
+        value: 0.00,
+        currency: 'BRL',
+        status: 'complete',
+        ...formData
+      });
+    }
+
     window.open(`https://wa.me/5561993003980?text=${message}`, '_blank');
   };
 
@@ -47,13 +76,26 @@ export function ContactForm() {
     return formatted;
   };
 
+  const handleInputChange = (name: string, value: string | boolean) => {
+    setFormData(prev => ({ ...prev, [name]: value }));
+
+    // Track form field changes
+    if (!(window as any).fbq) return;
+
+    (window as any).fbq('trackCustom', 'FormFieldComplete', {
+      field_name: name,
+      field_value: value,
+      form_name: 'Contact Form'
+    });
+  };
+
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const rawValue = e.target.value;
     const numbers = rawValue.replace(/\D/g, '');
     
     if (numbers.length <= 11) {
       const formattedValue = formatPhoneNumber(numbers);
-      setFormData({ ...formData, phone: formattedValue });
+      handleInputChange('phone', formattedValue);
     }
   };
 
@@ -77,7 +119,7 @@ export function ContactForm() {
                   placeholder="Nome"
                   className="bg-white/5 border-white/10 text-white placeholder:text-gray-400"
                   value={formData.name}
-                  onChange={(e) => setFormData({...formData, name: e.target.value})}
+                  onChange={(e) => handleInputChange('name', e.target.value)}
                   required
                 />
               </div>
@@ -87,7 +129,7 @@ export function ContactForm() {
                   placeholder="Email"
                   className="bg-white/5 border-white/10 text-white placeholder:text-gray-400"
                   value={formData.email}
-                  onChange={(e) => setFormData({...formData, email: e.target.value})}
+                  onChange={(e) => handleInputChange('email', e.target.value)}
                   required
                 />
               </div>
@@ -110,14 +152,14 @@ export function ContactForm() {
                 placeholder="Empresa"
                 className="bg-white/5 border-white/10 text-white placeholder:text-gray-400"
                 value={formData.company}
-                onChange={(e) => setFormData({...formData, company: e.target.value})}
+                onChange={(e) => handleInputChange('company', e.target.value)}
                 required
               />
             </div>
             <div>
               <Select 
                 value={formData.budget}
-                onValueChange={(value) => setFormData({...formData, budget: value})}
+                onValueChange={(value) => handleInputChange('budget', value)}
                 required
               >
                 <SelectTrigger className="bg-white/5 border-white/10 text-white">
@@ -136,7 +178,7 @@ export function ContactForm() {
               <Checkbox 
                 id="lgpd" 
                 checked={formData.lgpd}
-                onCheckedChange={(checked) => setFormData({...formData, lgpd: checked as boolean})}
+                onCheckedChange={(checked) => handleInputChange('lgpd', checked as boolean)}
                 required
               />
               <label htmlFor="lgpd" className="text-sm text-gray-400">

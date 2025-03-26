@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import { useState, useEffect, Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { LeadModal } from "@/components/LeadModal";
 import { fadeIn } from "@/lib/animations";
 import { initializeAnalytics } from "@/lib/firebase";
 import { logEvent } from "firebase/analytics";
@@ -55,6 +56,7 @@ export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [analytics, setAnalytics] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     setIsLoaded(true);
@@ -90,6 +92,7 @@ export default function Home() {
         >
           <Navigation isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
           <Hero />
+          <LeadModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
 
           <motion.div
             whileInView={{ x: 0, opacity: 1 }}
