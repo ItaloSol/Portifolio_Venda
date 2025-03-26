@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { createHash } from 'crypto';
+import Loader from '@/components/styled-components';
 
 interface LeadModalProps {
   isOpen: boolean;
@@ -17,6 +19,7 @@ export function LeadModal({ isOpen: controlledIsOpen, onClose }: LeadModalProps)
     phone: ''
   });
   const [hasInitializedPixel, setHasInitializedPixel] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setIsOpen(controlledIsOpen);
@@ -24,7 +27,7 @@ export function LeadModal({ isOpen: controlledIsOpen, onClose }: LeadModalProps)
 
   useEffect(() => {
     if (isOpen && !hasInitializedPixel && (window as any).fbq) {
-      // Track modal view once
+      // Track modal view once - Event Data
       (window as any).fbq('track', 'ViewContent', {
         content_name: 'Lead Modal',
         content_category: 'Lead Generation',
@@ -34,7 +37,7 @@ export function LeadModal({ isOpen: controlledIsOpen, onClose }: LeadModalProps)
 
       setHasInitializedPixel(true);
     }
-  }, [isOpen]);
+  }, [isOpen, hasInitializedPixel]);
 
   useEffect(() => {
     if (hasShown) return;
@@ -60,17 +63,47 @@ export function LeadModal({ isOpen: controlledIsOpen, onClose }: LeadModalProps)
     };
   }, [hasShown]);
 
+  const hashData = (data: string): string => {
+    return createHash('sha256').update(data).digest('hex');
+  };
+
+  const formatPhoneNumber = (value: string): string => {
+    const numbers = value.replace(/\D/g, '');
+    if (numbers.length === 0) return '';
+    
+    const parts = {
+      ddd: numbers.slice(0, 2),
+      firstDigit: numbers.slice(2, 3),
+      firstPart: numbers.slice(3, 7),
+      lastPart: numbers.slice(7, 11)
+    };
+
+    let formatted = '';
+    if (parts.ddd) formatted += `(${parts.ddd}`;
+    if (parts.firstDigit) formatted += `) ${parts.firstDigit}`;
+    if (parts.firstPart) formatted += ` ${parts.firstPart}`;
+    if (parts.lastPart) formatted += `-${parts.lastPart}`;
+
+    return formatted;
+  };
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    
+    if (name === 'phone') {
+      const formattedPhone = formatPhoneNumber(value);
+      setFormData(prev => ({ ...prev, [name]: formattedPhone }));
+    } else {
+      setFormData(prev => ({ ...prev, [name]: value }));
+    }
 
-    // Track input changes in Meta Pixel
     if (!(window as any).fbq) return;
 
-    // Send lead data to Meta Pixel
+    // Send hashed data for contact information tracking
+    const hashedValue = name === 'phone' || name === 'name' ? hashData(value) : value;
     (window as any).fbq('trackCustom', 'LeadFormProgress', {
       field_name: name,
-      field_value: value,
+      field_value: hashedValue,
       form_name: 'Landing Page Lead Form'
     });
   };
@@ -78,6 +111,50 @@ export function LeadModal({ isOpen: controlledIsOpen, onClose }: LeadModalProps)
   const handleClose = () => {
     setIsOpen(false);
     onClose();
+  };
+
+  const handleSubmit = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    if (!(window as any).fbq) return;
+    
+    // Track form submission with hashed data
+    (window as any).fbq('track', 'Lead', {
+      content_name: 'Landing Page Lead Form',
+      content_category: 'Lead Generation',
+      value: 0.00,
+      currency: 'BRL',
+      status: 'complete',
+      hashed_name: hashData(formData.name),
+      hashed_phone: hashData(formData.phone)
+    });
+
+    try {
+      const response = await fetch('https://api.sheetmonkey.io/form/ju15gVvTZkETacf4zTMqzT', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          Name: formData.name,
+          Phone: formData.phone,
+          Created: 'x-sheetmonkey-current-date-time'
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit form');
+      }
+
+      // Close modal after successful submission
+      handleClose();
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   if (!isOpen) return null;
@@ -133,31 +210,22 @@ export function LeadModal({ isOpen: controlledIsOpen, onClose }: LeadModalProps)
             />
           </div>
 
-          <Button
-            className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold py-2 rounded-lg transition-all duration-200"
-            onClick={(e) => {
-              e.preventDefault();
-              if (!(window as any).fbq) return;
-              
-              // Track form submission
-              (window as any).fbq('track', 'Lead', {
-                content_name: 'Landing Page Lead Form',
-                content_category: 'Lead Generation',
-                value: 0.00,
-                currency: 'BRL',
-                status: 'complete',
-                ...formData
-              });
-
-              handleClose();
-            }}
-          >
-            Quero Aumentar Minhas Vendas
-          </Button>
+          {isLoading ? (
+            <div className="flex justify-center py-2">
+              <Loader />
+            </div>
+          ) : (
+            <Button
+              className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold py-2 rounded-lg transition-all duration-200"
+              onClick={handleSubmit}
+            >
+              Quero Aumentar Minhas Vendas
+            </Button>
+          )}
         </form>
 
         <p className="text-xs text-gray-400 text-center mt-4">
-          Seus dados estão seguros e nunca serão compartilhados.
+          Seus dados estão seguros e serão processados de acordo com nossa política de privacidade e os Termos das Ferramentas da Meta para Empresas.
         </p>
       </div>
     </div>
