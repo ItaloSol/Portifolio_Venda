@@ -191,7 +191,7 @@ export function LeadModal({ isOpen: controlledIsOpen, onClose }: LeadModalProps)
               value={formData.name}
               onChange={handleInputChange}
               className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-white"
-              placeholder="Seu nome completo"
+              placeholder="Seu nome"
             />
           </div>
 
