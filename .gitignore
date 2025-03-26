@@ -10,11 +10,12 @@
 
 # next.js
 /.next/
-
+/app/layout.tsx
+/app
 
 # production
 /build
-/app/layout.tsx
+/.app/
 
 # misc
 .DS_Store
