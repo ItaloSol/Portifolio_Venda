@@ -1,10 +1,12 @@
-"use client";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Checkbox } from "@/components/ui/checkbox";
-import { useState, FormEvent, useEffect } from "react";
-import Link from "next/link";
+'use client';
+
+import { FormEvent, useState, useEffect, useRef } from 'react';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Checkbox } from '@/components/ui/checkbox';
+import { createHash } from 'crypto';
+import Loader from '@/components/styled-components';
 
 export function ContactForm() {
   const [formData, setFormData] = useState({
@@ -16,11 +18,12 @@ export function ContactForm() {
     lgpd: false
   });
 
-  const [hasInitializedPixel, setHasInitializedPixel] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const hasTrackedViewContent = useRef(false);
 
   useEffect(() => {
-    if (!hasInitializedPixel && (window as any).fbq) {
-      // Track form view once
+    if (!hasTrackedViewContent.current && (window as any).fbq) {
+      // Track form view once - Event Data
       (window as any).fbq('track', 'ViewContent', {
         content_name: 'Contact Form',
         content_category: 'Lead Generation',
@@ -28,12 +31,18 @@ export function ContactForm() {
         status: 'visible'
       });
 
-      setHasInitializedPixel(true);
+      hasTrackedViewContent.current = true;
     }
   }, []);
 
-  const handleSubmit = (e: FormEvent) => {
+  const hashData = (data: string): string => {
+    return createHash('sha256').update(data).digest('hex');
+  };
+
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
+    
     const message = encodeURIComponent(
       `Olá! Me chamo ${formData.name} da empresa ${formData.company}.\n` +
       `Email: ${formData.email}\n` +
@@ -41,7 +50,7 @@ export function ContactForm() {
       `Orçamento desejado: ${formData.budget}`
     );
 
-    // Track form submission
+    // Track form submission with hashed data
     if ((window as any).fbq) {
       (window as any).fbq('track', 'Lead', {
         content_name: 'Contact Form',
@@ -49,11 +58,42 @@ export function ContactForm() {
         value: 0.00,
         currency: 'BRL',
         status: 'complete',
-        ...formData
+        hashed_name: hashData(formData.name),
+        hashed_email: hashData(formData.email),
+        hashed_phone: hashData(formData.phone),
+        hashed_company: hashData(formData.company),
+        budget: formData.budget
       });
     }
 
-    window.open(`https://wa.me/5561993003980?text=${message}`, '_blank');
+    try {
+      const response = await fetch('https://api.sheetmonkey.io/form/ju15gVvTZkETacf4zTMqzT', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          Name: formData.name,
+          Email: formData.email,
+          Phone: formData.phone,
+          Company: formData.company,
+          Budget: formData.budget,
+          Created: 'x-sheetmonkey-current-date-time'
+        }),
+      });
+
+      if (response.ok) {
+        // Open WhatsApp in a new tab
+        window.open(`https://wa.me/5561993003980?text=${message}`, '_blank');
+      } else {
+        throw new Error('Failed to submit form');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const formatPhoneNumber = (value: string): string => {
@@ -79,12 +119,13 @@ export function ContactForm() {
   const handleInputChange = (name: string, value: string | boolean) => {
     setFormData(prev => ({ ...prev, [name]: value }));
 
-    // Track form field changes
+    // Track form field changes with hashed data
     if (!(window as any).fbq) return;
 
+    const hashedValue = ['name', 'email', 'phone', 'company'].includes(name) ? hashData(value as string) : value;
     (window as any).fbq('trackCustom', 'FormFieldComplete', {
       field_name: name,
-      field_value: value,
+      field_value: hashedValue,
       form_name: 'Contact Form'
     });
   };
@@ -112,11 +153,22 @@ export function ContactForm() {
               Proposta
             </h2>
           </div>
-          <form className="space-y-6" onSubmit={handleSubmit}>
+          {isLoading ? (
+            <div className="flex justify-center items-center min-h-[400px]">
+              <Loader />
+            </div>
+          ) : (
+            <form 
+              className="space-y-6" 
+              action="https://api.sheetmonkey.io/form/ju15gVvTZkETacf4zTMqzT" 
+              method="post" 
+              onSubmit={handleSubmit}>
+            <input type="hidden" name="Created" value="x-sheetmonkey-current-date-time" />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <Input
                   placeholder="Nome"
+                  name="Name"
                   className="bg-white/5 border-white/10 text-white placeholder:text-gray-400"
                   value={formData.name}
                   onChange={(e) => handleInputChange('name', e.target.value)}
@@ -127,6 +179,7 @@ export function ContactForm() {
                 <Input
                   type="email"
                   placeholder="Email"
+                  name="Email"
                   className="bg-white/5 border-white/10 text-white placeholder:text-gray-400"
                   value={formData.email}
                   onChange={(e) => handleInputChange('email', e.target.value)}
@@ -138,6 +191,7 @@ export function ContactForm() {
               <Input
                 type="tel"
                 placeholder="Telefone (61) 9 0000-0000"
+                name="Phone"
                 className="bg-white/5 border-white/10 text-white placeholder:text-gray-400"
                 value={formData.phone}
                 onChange={handlePhoneChange}
@@ -150,6 +204,7 @@ export function ContactForm() {
             <div>
               <Input
                 placeholder="Empresa"
+                name="Company"
                 className="bg-white/5 border-white/10 text-white placeholder:text-gray-400"
                 value={formData.company}
                 onChange={(e) => handleInputChange('company', e.target.value)}
@@ -159,6 +214,7 @@ export function ContactForm() {
             <div>
               <Select 
                 value={formData.budget}
+                name="Budget"
                 onValueChange={(value) => handleInputChange('budget', value)}
                 required
               >
@@ -182,19 +238,23 @@ export function ContactForm() {
                 required
               />
               <label htmlFor="lgpd" className="text-sm text-gray-400">
-                Concordo com o processamento dos meus dados de acordo com a LGPD
+                Concordo com a coleta e processamento dos meus dados de acordo com os Termos das Ferramentas da Meta para Empresas
               </label>
             </div>
             <Button 
               type="submit"
               className="w-full bg-gradient-to-r from-blue-500 to-purple-500"
+              disabled={!formData.lgpd}
             >
               Enviar Solicitação
             </Button>
             <p className="text-center text-sm text-gray-400">
+              Seus dados estão seguros e serão processados de acordo com nossa política de privacidade e os Termos das Ferramentas da Meta para Empresas.
+              <br />
               Tempo médio de resposta: 24 horas úteis
             </p>
           </form>
+          )}
         </div>
       </div>
     </section>
