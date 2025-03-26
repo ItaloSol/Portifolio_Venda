@@ -19,18 +19,18 @@ export function ContactForm() {
   const [hasInitializedPixel, setHasInitializedPixel] = useState(false);
 
   useEffect(() => {
-    if (hasInitializedPixel || !(window as any).fbq) return;
-    
-    // Track form view once
-    (window as any).fbq('track', 'ViewContent', {
-      content_name: 'Contact Form',
-      content_category: 'Lead Generation',
-      content_type: 'form',
-      status: 'visible'
-    });
+    if (!hasInitializedPixel && (window as any).fbq) {
+      // Track form view once
+      (window as any).fbq('track', 'ViewContent', {
+        content_name: 'Contact Form',
+        content_category: 'Lead Generation',
+        content_type: 'form',
+        status: 'visible'
+      });
 
-    setHasInitializedPixel(true);
-  }, [hasInitializedPixel]);
+      setHasInitializedPixel(true);
+    }
+  }, []);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
