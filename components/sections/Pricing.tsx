@@ -6,7 +6,7 @@ const plans = [
   
   {
     name: "Pagina Simples",
-    price: "Apartir de R$290 a R$430",
+    price: "Apartir de R$360 a R$430",
     features: [
       "Recomendado para pequenos projetos",
       "Design responsivo mobile-first",
