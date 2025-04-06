@@ -3,6 +3,7 @@ import { SparklesCore } from "@/components/ui/aceternity/sparkles";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface NavigationProps {
   isMenuOpen: boolean;
@@ -30,9 +31,15 @@ export function Navigation({ isMenuOpen, setIsMenuOpen }: NavigationProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <SparklesCore className="h-8 w-32">
-              <span className="font-bold text-xl">LandingCraft</span>
-            </SparklesCore>
+            <Image 
+              src="/logomarca.webp" 
+              alt="Logo" 
+              width={48} 
+              height={48} 
+              className="h-12 w-auto mr-2"
+              priority
+            />
+            <span className="font-bold text-xl">LandingCraft</span>
           </div>
           
           <div className="hidden md:flex items-center space-x-8">

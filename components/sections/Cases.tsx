@@ -10,28 +10,28 @@ const cases = [
     description: "Aumento de 150% nas conversões após implementação da nova landing page de produtos",
     link: 'https://www.grafex.eb.mil.br/portifolio/',
     roi: "+150% ROI",
-    image: "/cases/portifolio_grafex.png",
+    image: "/cases/portifolio_grafex.webp",
   },
   {
     title: "Landing Page Clinica Dentaria",
     description: "Crescimento de 40% no aumento de clicks sobre a clinica",
     link: 'https://sorrirmais.netlify.app/',
     roi: "+180% ROI",
-    image: "/cases/dentista.png",
+    image: "/cases/dentista.webp",
   },
   {
     title: "Landing Page Camping",
     description: "Cresimento de 50% na conversão de novos hospedes",
     link: 'https://pousadabjnoprice.netlify.app/',
     roi: "+200% ROI",
-    image: "/cases/camping.png",
+    image: "/cases/camping.webp",
   },
   {
     title: "Landing Page Chalé",
     description: "Cresimento de 55% na conversão de novos hospedes",
     link: 'https://pousadabvnoprice.netlify.app/',
     roi: "+200% ROI",
-    image: "/cases/chales.png",
+    image: "/cases/chales.webp",
   },
 ];
 

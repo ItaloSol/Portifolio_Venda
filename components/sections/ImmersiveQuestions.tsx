@@ -1,10 +1,11 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-import { ArrowUpRight } from "lucide-react";
+import { useRef, useState } from "react";
+import { ArrowUpRight, ChevronLeft, ChevronRight, MoveHorizontal } from "lucide-react";
 import Link from "next/link";
-
+import { useSwipeable } from "react-swipeable";
+import Image from "next/image";
 const questions = [
   {
     id: 1,
@@ -40,11 +41,23 @@ const questions = [
     description: "Uma landing page de alta performance pode transformar curiosos em clientes fiéis.",
     image: "questions/5.1.avif",
     align: "left"
+  },
+  {
+    id: 6,
+    question: "Você está aproveitando ao máximo o potencial de SEO da sua página?",
+    description: "Uma landing page otimizada para SEO pode aumentar sua visibilidade e atrair mais tráfego qualificado.",
+    image: "questions/6.1.avif",
+    align: "right"
   }
 ];
 
 export function ImmersiveQuestions() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
+  const [showSwipeHint, setShowSwipeHint] = useState(true);
   const containerRef = useRef<HTMLDivElement>(null);
+  const carouselRef = useRef<HTMLDivElement>(null);
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"]
@@ -56,50 +69,155 @@ export function ImmersiveQuestions() {
   const whatsappMessage = encodeURIComponent("Olá! Gostaria de saber mais sobre como aumentar minhas conversões com uma landing page profissional.");
   const whatsappLink = `https://wa.me/5561993003980?text=${whatsappMessage}`;
 
+  const paginate = (newDirection: number) => {
+    setDirection(newDirection);
+    setShowSwipeHint(false);
+    setCurrentIndex((prev) => {
+      let nextIndex = prev + newDirection;
+      if (nextIndex < 0) nextIndex = questions.length - 1;
+      if (nextIndex >= questions.length) nextIndex = 0;
+      return nextIndex;
+    });
+  };
+
+  const handlers = useSwipeable({
+    onSwipedLeft: () => paginate(1),
+    onSwipedRight: () => paginate(-1),
+    touchEventOptions: { passive: false },
+    trackMouse: true
+  });
+
+  const variants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 1000 : -1000,
+      opacity: 0
+    }),
+    center: {
+      zIndex: 1,
+      x: 0,
+      opacity: 1
+    },
+    exit: (direction: number) => ({
+      zIndex: 0,
+      x: direction < 0 ? 1000 : -1000,
+      opacity: 0
+    })
+  };
+
   return (
     <section ref={containerRef} className="relative py-40 bg-black overflow-hidden">
       <motion.div 
         style={{ opacity }}
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-40"
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
       >
-        {questions.map((item) => (
-          <motion.div
-            key={item.id}
-            style={{ y }}
-            className={`flex flex-col md:flex-row items-center gap-8 md:gap-12 ${
-              item.align === "right" ? "md:flex-row-reverse" : ""
-            }`}
+        <div className="relative" {...handlers}>
+          {/* Navigation Buttons */}
+          <div className="absolute left-0 top-1/2 -translate-y-1/2 z-10 flex items-center justify-between w-full px-4">
+            <button
+              onClick={() => paginate(-1)}
+              className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+              aria-label="Previous slide"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+            <button
+              onClick={() => paginate(1)}
+              className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+              aria-label="Next slide"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+          </div>
+
+          {/* Carousel */}
+          <div 
+            ref={carouselRef}
+            className="overflow-hidden relative h-[500px]"
           >
-            <div className="w-full md:w-1/2">
-              <div className="group relative h-[300px] md:h-[400px] overflow-hidden rounded-xl">
-                <img 
-                  src={item.image} 
-                  alt={item.question}
-                  className="w-full h-full object-cover scale-110 group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
+           
+
+            <motion.div
+              key={currentIndex}
+              custom={direction}
+              variants={variants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{
+                x: { type: "spring", stiffness: 300, damping: 30 },
+                opacity: { duration: 0.2 }
+              }}
+              className="absolute w-full"
+            >
+              <div className="w-full max-w-3xl mx-auto">
+                <div className="h-full rounded-2xl overflow-hidden bg-white/5 backdrop-blur-sm">
+                  <div className="relative h-48 md:h-64">
+                    <Image 
+                      src={`/${questions[currentIndex].image}`}
+                      alt={questions[currentIndex].question}
+                      fill
+                      className="object-cover"
+                      priority
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60" />
+                  </div>
+                  <div className="p-6 md:p-8 space-y-4">
+                    <h3 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                      {questions[currentIndex].question}
+                    </h3>
+                    <p className="text-gray-300 text-lg">
+                      {questions[currentIndex].description}
+                    </p>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div className="w-full md:w-1/2 space-y-4 md:space-y-6">
-              <h3 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                {item.question}
-              </h3>
-              <p className="text-lg md:text-xl text-gray-300">
-                {item.description}
-              </p>
-            </div>
-          </motion.div>
-        ))}
+            </motion.div>
+          </div>
+          {/* Swipe Hint */}
+          {showSwipeHint && (
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1 }}
+                className="absolute top-2/1 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 p-2 rounded-full"
+              >
+                <MoveHorizontal className="w-5 h-5 text-blue-400" />
+                <span className="text-sm text-gray-300">Deslize para navegar</span>
+              </motion.div>
+            )}
+          {/* Dots Navigation */}
+          <div className="flex justify-center gap-2 mt-8">
+            {questions.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => {
+                  const newDirection = index > currentIndex ? 1 : -1;
+                  setDirection(newDirection);
+                  setCurrentIndex(index);
+                  setShowSwipeHint(false);
+                }}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentIndex 
+                    ? 'bg-blue-400 scale-110' 
+                    : 'bg-white/20 hover:bg-white/40'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
 
         <motion.div
           style={{ y }}
-          className="relative overflow-hidden rounded-xl bg-white/5 backdrop-blur-sm p-8 md:p-12 text-center"
+          className="mt-20 relative overflow-hidden rounded-xl bg-white/5 backdrop-blur-sm p-8 md:p-12 text-center"
         >
           <div className="absolute inset-0 z-0">
-            <img 
-              src="questions/6.1.avif" 
+            <Image
+              src="/questions/6.avif"
               alt="Call to action"
+              fill
               className="w-full h-full object-cover opacity-20"
+              priority
             />
             <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/90" />
           </div>
@@ -118,6 +236,7 @@ export function ImmersiveQuestions() {
           </div>
         </motion.div>
       </motion.div>
+     
     </section>
   );
 }
