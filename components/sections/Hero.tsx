@@ -53,14 +53,14 @@ export function Hero() {
             </div>
             <div className="flex items-center gap-4 text-gray-400">
               <div className="h-px flex-1 bg-white/20" />
-              <span>Já entregamos páginas de sucesso</span>
+              <span className="text-lg font-semibold text-blue-400">Transforme visitantes em clientes fiéis!</span>
               <div className="h-px flex-1 bg-white/20" />
             </div>
           </div>
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl blur-3xl opacity-30" />
             <Image
-              src="/hero-image.jpg"
+              src="/logomarca.webp"
               alt="Landing Page Mockup"
               width={2426}
               height={1617}

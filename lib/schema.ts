@@ -4,7 +4,7 @@ export const getOrganizationSchema = () => ({
   "name": "LandingCraft",
   "description": "Especialistas em criar landing pages de alta conversão",
   "url": "https://landingcraft.com.br",
-  "logo": "https://landingcraft.com.br/logo.png",
+  "logo": "https://landingcraft.com.br/logo.webp",
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "+55-61-99300-3980",

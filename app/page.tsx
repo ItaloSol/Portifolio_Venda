@@ -14,7 +14,8 @@ import { Hero } from "@/components/sections/Hero";
 import { Questions } from "@/components/sections/Questions";
 import { Stats } from "@/components/sections/Stats";
 import { ImmersiveQuestions } from "@/components/sections/ImmersiveQuestions";
-
+import { Clients } from "@/components/sections/Clients";
+import { Testimonials } from "@/components/sections/Testimonials";
 // Componentes carregados dinamicamente
 const Gallery = dynamic(() => import("@/components/sections/Gallery").then((mod) => mod.Gallery), {
   loading: () => <motion.div className="h-screen animate-pulse bg-gray-900" />,
@@ -123,9 +124,35 @@ export default function Home() {
               <WorkProcess />
             </motion.div>
 
-          
+
+            <motion.div
+              whileInView={{ x: 0, opacity: 1 }}
+              initial={{ x: "100%", opacity: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true }}
+            >
+              <Clients />
+            </motion.div>
+
+            <motion.div
+              whileInView={{ x: 0, opacity: 1 }}
+              initial={{ x: "-100%", opacity: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true }}
+            >
+              <Testimonials />
+            </motion.div>
+
+            <motion.div
+              whileInView={{ x: 0, opacity: 1 }}
+              initial={{ x: "100%", opacity: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true }}
+            >
               <ImmersiveQuestions />
-            
+            </motion.div>
+
+
 
             <motion.div
               whileInView={{ x: 0, opacity: 1 }}
@@ -172,9 +199,9 @@ export default function Home() {
               <ContactForm />
             </motion.div>
 
-            
-              <Footer />
-           
+
+            <Footer />
+
           </Suspense>
         </motion.main>
       )}

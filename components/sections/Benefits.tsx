@@ -77,7 +77,7 @@ export function MacbookScrollDemo() {
             <Badge className="h-10 w-10 transform -rotate-12" />
           </Link>
         }
-        src={`https://raw.githubusercontent.com/ItaloSol/imagens_links_API/refs/heads/main/site_vendas_laptop.png`}
+        src={`https://raw.githubusercontent.com/ItaloSol/imagens_links_API/refs/heads/main/site_vendas_laptop.webp`}
         showGradient={false}
       />
     </div>
