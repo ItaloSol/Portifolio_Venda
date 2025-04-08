@@ -20,11 +20,15 @@ export function Hero() {
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4 }} // Removed delay
+                transition={{ duration: 0.4 }}
                 className="inline-flex items-center px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20"
+                style={{ willChange: 'transform, opacity' }}
               >
                 <span className="text-blue-400 font-semibold">Ítalo Sol</span>
-                <span className="ml-2 px-2 py-1 rounded-full bg-blue-500/20 text-sm text-blue-400">
+                <span 
+                  className="ml-2 px-2 py-1 rounded-full bg-blue-500/20 text-sm text-blue-400"
+                  aria-hidden="true"
+                >
                   Desenvolvedor Web
                 </span>
               </motion.div>
