@@ -245,6 +245,7 @@ export function ContactForm() {
               type="submit"
               className="w-full bg-gradient-to-r from-blue-500 to-purple-500"
               disabled={!formData.lgpd}
+              aria-label="Select Concordo"
             >
               Enviar Solicitação
             </Button>
