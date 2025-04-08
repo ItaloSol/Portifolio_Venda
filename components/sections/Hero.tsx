@@ -69,11 +69,18 @@ export function Hero() {
             <Image
               src="/logomarca.webp"
               alt="Landing Page Mockup"
-              width={1080}
-              height={1080}
+              width={600}  // Reduced from 1080
+              height={600} // Reduced from 1080
+              sizes="(max-width: 768px) 100vw, 50vw" // Responsive sizing
               priority
+              fetchPriority="high"
               quality={85}
               className="relative rounded-xl shadow-2xl"
+              style={{
+                color: 'transparent',
+                maxWidth: '100%',
+                height: 'auto'
+              }}
             />
           </div>
         </div>

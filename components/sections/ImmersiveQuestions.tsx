@@ -155,9 +155,13 @@ export function ImmersiveQuestions() {
                     <Image 
                       src={`/${questions[currentIndex].image}`}
                       alt={questions[currentIndex].question}
-                      fill
+                      width={1200}  // Optimal width for full-width display
+                      height={800} // 3:2 aspect ratio
+                      sizes="(max-width: 768px) 100vw, 80vw" // Responsive sizing
+                      priority={currentIndex < 2} // Only prioritize first 2 images
+                      quality={85}
                       className="object-cover"
-                      priority
+                      loading={currentIndex > 1 ? "lazy" : "eager"} // Lazy load non-visible images
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60" />
                   </div>
@@ -215,7 +219,10 @@ export function ImmersiveQuestions() {
             <Image
               src="/questions/6.jpg"
               alt="Call to action"
-              fill
+              width={1920}  // Full HD width
+              height={1080} // Full HD height (16:9 aspect ratio)
+              sizes="100vw"  // Full viewport width
+              quality={60}  // Lower quality since it's a background with opacity
               className="w-full h-full object-cover opacity-20"
               priority
             />

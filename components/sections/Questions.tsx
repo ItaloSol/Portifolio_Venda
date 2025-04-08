@@ -138,9 +138,13 @@ export function Questions() {
                     <Image
                       src={questions[currentIndex].image}
                       alt={questions[currentIndex].question}
-                      fill
+                      width={1200}  // Optimal width for full-width display
+                      height={800} // Maintain 3:2 aspect ratio
+                      sizes="(max-width: 768px) 100vw, 80vw" // Responsive sizing
+                      priority={currentIndex === 0} // Only prioritize first image
+                      quality={85}
                       className="w-full h-full object-cover"
-                      priority
+                      loading={currentIndex === 0 ? "eager" : "lazy"} // Lazy load non-visible images
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60" />
                   </div>
