@@ -29,11 +29,17 @@ export function Hero() {
                 </span>
               </motion.div>
             </div>
+            
+            {/* Optimized H1 with will-change and reduced animation complexity */}
             <motion.h1 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.4 }} // Removed delay
+              transition={{ 
+                duration: 0.2, // Reduced from 0.4s
+                ease: "linear" // Simpler easing function
+              }}
               className="text-5xl md:text-6xl font-bold leading-tight gradient-text"
+              style={{ willChange: 'opacity' }} // Hint for browser optimization
             >
               Por que sua empresa precisa de uma Landing Page?
             </motion.h1>
