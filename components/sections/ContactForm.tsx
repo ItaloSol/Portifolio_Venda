@@ -218,15 +218,43 @@ export function ContactForm() {
                 onValueChange={(value) => handleInputChange('budget', value)}
                 required
               >
-                <SelectTrigger className="bg-white/5 border-white/10 text-white">
+                <SelectTrigger 
+                  className="bg-white/5 border-white/10 text-white"
+                  aria-label="Selecione o intervalo de orçamento"
+                >
                   <SelectValue placeholder="Selecione uma opção" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="300-500">R$ 300 - R$ 500</SelectItem>
-                  <SelectItem value="500-1000">R$ 500 - R$ 1.000</SelectItem>
-                  <SelectItem value="1000-3000">R$ 1.000 - R$ 3.000</SelectItem>
-                  <SelectItem value="3000-5000">R$ 3.000 - R$ 5.000</SelectItem>
-                  <SelectItem value="5000+">R$ 5.000+</SelectItem>
+                  <SelectItem 
+                    value="300-500"
+                    aria-label="De 300 a 500 reais"
+                  >
+                    R$ 300 - R$ 500
+                  </SelectItem>
+                  <SelectItem 
+                    value="500-1000"
+                    aria-label="De 500 a 1000 reais"
+                  >
+                    R$ 500 - R$ 1.000
+                  </SelectItem>
+                  <SelectItem 
+                    value="1000-3000"
+                    aria-label="De 1000 a 3000 reais"
+                  >
+                    R$ 1.000 - R$ 3.000
+                  </SelectItem>
+                  <SelectItem 
+                    value="3000-5000"
+                    aria-label="De 3000 a 5000 reais"
+                  >
+                    R$ 3.000 - R$ 5.000
+                  </SelectItem>
+                  <SelectItem 
+                    value="5000+"
+                    aria-label="Acima de 5000 reais"
+                  >
+                    R$ 5.000+
+                  </SelectItem>
                 </SelectContent>
               </Select>
             </div>
