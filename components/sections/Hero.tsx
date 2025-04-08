@@ -12,19 +12,15 @@ export function Hero() {
 
   return (
     <section id="Home" className="relative min-h-screen flex items-center">
-      {/* <Vortex
-        backgroundColor="black"
-        className="flex items-center flex-col justify-center px-2 md:px-10 py-4 w-full h-full"
-      > */}
-           <BackgroundBeams />
-      <div  className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+      <BackgroundBeams />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <div className="space-y-2">
-            <motion.div
+              <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
+                transition={{ duration: 0.4 }} // Removed delay
                 className="inline-flex items-center px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20"
               >
                 <span className="text-blue-400 font-semibold">Ítalo Sol</span>
@@ -36,11 +32,11 @@ export function Hero() {
             <motion.h1 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
+              transition={{ duration: 0.4 }} // Removed delay
               className="text-5xl md:text-6xl font-bold leading-tight gradient-text"
             >
               Por que sua empresa precisa de uma Landing Page?
-              </motion.h1>
+            </motion.h1>
             <p className="text-xl text-gray-300">
               Descubra como uma landing page pode impulsionar seus resultados e transformar visitantes em clientes
             </p>
@@ -63,8 +59,8 @@ export function Hero() {
             <Image
               src="/logomarca.webp"
               alt="Landing Page Mockup"
-              width={2426}
-              height={1617}
+              width={1080}
+              height={1080}
               priority
               quality={85}
               className="relative rounded-xl shadow-2xl"
@@ -72,7 +68,6 @@ export function Hero() {
           </div>
         </div>
       </div>
-      {/* </Vortex> */}
     </section>
   );
 }
