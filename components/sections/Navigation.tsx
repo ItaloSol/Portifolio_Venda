@@ -79,7 +79,10 @@ export function Navigation({ isMenuOpen, setIsMenuOpen }: NavigationProps) {
               Contato
             </a>
             <Link href={whatsappLink} target="_blank">
-              <Button className="bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 transition-all duration-300">
+              <Button 
+                className="bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 transition-all duration-300"
+                aria-label="Solicitar proposta via WhatsApp"
+              >
                 Solicite Proposta
               </Button>
             </Link>
@@ -89,6 +92,7 @@ export function Navigation({ isMenuOpen, setIsMenuOpen }: NavigationProps) {
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="p-2 rounded-md hover:bg-white/10 transition-colors duration-300"
+              aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -135,7 +139,10 @@ export function Navigation({ isMenuOpen, setIsMenuOpen }: NavigationProps) {
               Contato
             </a>
             <Link href={whatsappLink} target="_blank" className="block mt-4">
-              <Button className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 transition-all duration-300 py-6">
+              <Button 
+                className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 transition-all duration-300 py-6"
+                aria-label="Solicitar proposta via WhatsApp"
+              >
                 Solicite Proposta
               </Button>
             </Link>

@@ -94,6 +94,7 @@ export function Questions() {
         style={{ opacity }}
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
       >
+        <h2 className="sr-only">Perguntas frequentes</h2>
         <div className="relative" {...handlers}>
           {/* Navigation Buttons */}
           <div className="absolute left-0 top-1/2 -translate-y-1/2 z-10 flex items-center justify-between w-full px-4">
@@ -118,8 +119,6 @@ export function Questions() {
             ref={carouselRef}
             className="overflow-hidden relative h-[500px]"
           >
-
-
             <motion.div
               key={currentIndex}
               custom={direction}
