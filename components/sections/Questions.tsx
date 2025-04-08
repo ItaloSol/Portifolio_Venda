@@ -10,27 +10,27 @@ const questions = [
   {
     id: 1,
     question: "Você tem dificuldades em atrair novos clientes sem uma presença online?",
-    image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2574&auto=format&fit=crop"
+    image: "questions/1.jpg"
   },
   {
     id: 2,
     question: "Como sua empresa se destaca no mercado se não possui uma vitrine digital?",
-    image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=2676&auto=format&fit=crop"
+    image: "questions/2.jpg"
   },
   {
     id: 3,
     question: "Você sabia que a maioria dos consumidores pesquisa online antes de fechar negócio?",
-    image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=2674&auto=format&fit=crop"
+    image: "questions/3.jpg"
   },
   {
     id: 4,
     question: "Já imaginou como um site profissional pode aumentar sua credibilidade e impulsionar suas vendas?",
-    image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=2674&auto=format&fit=crop"
+    image: "questions/4.jpg"
   },
   {
     id: 5,
     question: "Está pronto para transformar seu negócio e alcançar um público muito maior com um site personalizado?",
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2670&auto=format&fit=crop"
+    image: "questions/5.jpg"
   },
 ];
 
