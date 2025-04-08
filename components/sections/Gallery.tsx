@@ -281,6 +281,7 @@ export function Gallery() {
                     title="Next slide"
                     onClick={() => handleSlide(level, 'next')}
                     className="p-2 rounded-full bg-white/10 hover:bg-white/20"
+                   
                   >
                     <ChevronRight className="w-6 h-6" />
                   </button>

@@ -46,7 +46,8 @@ export function Hero() {
             </p>
             <div>
               <Link href={whatsappLink} target="_blank">
-                <Button className="bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 transition-opacity">
+                <Button className="bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 transition-opacity"
+                 aria-label="Solicite Proposta">
                   Solicite Proposta
                 </Button>
               </Link>

@@ -218,6 +218,7 @@ export function LeadModal({ isOpen: controlledIsOpen, onClose }: LeadModalProps)
             <Button
               className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold py-2 rounded-lg transition-all duration-200"
               onClick={handleSubmit}
+              aria-label="Aumentar Minhas Vendas"
             >
               Quero Aumentar Minhas Vendas
             </Button>

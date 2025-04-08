@@ -147,6 +147,7 @@ export function Pricing() {
                       ? "bg-gradient-to-r from-blue-500 to-purple-500"
                       : "bg-white/10 hover:bg-blue-800"
                   }`}
+                   aria-label="Aumentar vendas"
                 >
                   {plan.highlighted ? "Quero Aumentar Minhas Vendas" : "Solicitar Proposta"}
                 </Button>
