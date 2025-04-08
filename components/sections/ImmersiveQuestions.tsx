@@ -11,42 +11,42 @@ const questions = [
     id: 1,
     question: "Você está satisfeito com a taxa de conversão do seu site?",
     description: "Descubra se sua página atual está realmente transformando visitantes em clientes.",
-    image: "questions/1.1.avif",
+    image: "questions/1.1.jpg",
     align: "left"
   },
   {
     id: 2,
     question: "Seu site atrai e engaja os visitantes de forma eficaz?",
     description: "Uma landing page otimizada pode prender a atenção do público e aumentar o engajamento.",
-    image: "questions/2.1.avif",
+    image: "questions/2.1.jpg",
     align: "right"
   },
   {
     id: 3,
     question: "Você já percebeu que sua concorrência investe pesado em marketing digital?",
     description: "Destaque-se com um design moderno e copywriting persuasivo que converte.",
-    image: "questions/3.1.avif",
+    image: "questions/3.1.jpg",
     align: "left"
   },
   {
     id: 4,
     question: "Você sabia que uma landing page bem construída pode aumentar suas conversões em até 300%?",
     description: "Imagine o impacto positivo que isso pode ter nos resultados do seu negócio.",
-    image: "questions/4.1.avif",
+    image: "questions/4.1.jpg",
     align: "right"
   },
   {
     id: 5,
     question: "Seu site oferece uma experiência de usuário que incentiva ações imediatas?",
     description: "Uma landing page de alta performance pode transformar curiosos em clientes fiéis.",
-    image: "questions/5.1.avif",
+    image: "questions/5.1.jpg",
     align: "left"
   },
   {
     id: 6,
     question: "Você está aproveitando ao máximo o potencial de SEO da sua página?",
     description: "Uma landing page otimizada para SEO pode aumentar sua visibilidade e atrair mais tráfego qualificado.",
-    image: "questions/6.1.avif",
+    image: "questions/6.1.jpg",
     align: "right"
   }
 ];
@@ -213,7 +213,7 @@ export function ImmersiveQuestions() {
         >
           <div className="absolute inset-0 z-0">
             <Image
-              src="/questions/6.avif"
+              src="/questions/6.jpg"
               alt="Call to action"
               fill
               className="w-full h-full object-cover opacity-20"
