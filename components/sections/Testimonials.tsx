@@ -160,11 +160,14 @@ export function Testimonials() {
                         <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden ring-4 ring-blue-400/20">
                           <Image
                             src={testimonials[currentIndex].image}
-                            alt={testimonials[currentIndex].name}
+                            alt={`Depoimento de ${testimonials[currentIndex].name}`}
                             className="w-full h-full object-cover"
-                            width={128}
-                            height={128}
-                            priority
+                            width={160}  // Increased from 128 for better quality on retina displays
+                            height={160} // Increased from 128 for better quality on retina displays
+                            sizes="(max-width: 768px) 96px, 128px" // Responsive sizes
+                            priority={currentIndex < 2} // Only prioritize first 2 images
+                            quality={85}
+                            loading={currentIndex > 1 ? "lazy" : "eager"} // Lazy load non-visible images
                           />
                         </div>
                         <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-blue-400 rounded-full flex items-center justify-center">
