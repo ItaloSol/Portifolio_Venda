@@ -45,7 +45,7 @@ const photos = [
   },
   {
     id: 6,
-    src: "/preview/maquiagem.webp",
+    src: "/preview/modelo2.webp",
     alt: "Design Médio",
     title: "Acabamento Médio",
     level: "basico"
@@ -53,27 +53,27 @@ const photos = [
   // Nível Profissional
   {
     id: 7,
-    src: "/preview/digital-pro.webp",
+    src: "/preview/loja.webp",
     alt: "Landing Page Premium",
     title: "Versão Premium",
     level: "profissional",
-    video: "qOSvKYOEtMs",
+    video: "c3PIY25CJE8",
   },
   {
     id: 8,
-    src: "/preview/imovel-pro.webp",
+    src: "/preview/marketing.webp",
     alt: "Design Profissional",
     title: "Layout Profissional",
     level: "profissional",
-    video: "P7g34Pyz5NY",
+    video: "9SZzjt6x0SY",
   },
   {
     id: 9,
-    src: "/preview/inovacao-pro.webp",
+    src: "/preview/revolucao.webp",
     alt: "Acabamento Premium",
     title: "Modelo Elite",
     level: "profissional",
-    video: "gibb34QJBNI",
+    video: "IaLRjWoqckU",
   }
 ];
 
