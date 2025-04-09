@@ -6,7 +6,7 @@ const plans = [
   
   {
     name: "Pagina Simples",
-    price: "Apartir de R$290 a R$430",
+    price: "Apartir de R$529",
     features: [
       "Recomendado para pequenos projetos",
       "Design responsivo mobile-first",
@@ -21,7 +21,7 @@ const plans = [
   },
   {
     name: "Básico",
-    price: "Apartir de R$650 a R$ 897",
+    price: "Apartir de R$649",
     features: [
       "Landing page otimizada",
       "Design responsivo",
