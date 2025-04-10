@@ -134,7 +134,18 @@ export function ImmersiveQuestions() {
             ref={carouselRef}
             className="overflow-hidden relative h-[500px]"
           >
-           
+            {/* Swipe Hint */}
+            {showSwipeHint && (
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1 }}
+                className="absolute bottom-4 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 flex items-center gap-2 bg-white/10 backdrop-blur-sm sm:px-1 mg:px-4 py-2 rounded-full"
+              > 
+                <MoveHorizontal className="w-5 h-5 text-blue-400" />
+                <span className="text-sm text-gray-300">Deslize para navegar</span>
+              </motion.div>
+            )}
 
             <motion.div
               key={currentIndex}
@@ -149,46 +160,32 @@ export function ImmersiveQuestions() {
               }}
               className="absolute w-full"
             >
-              <div className="w-full max-w-3xl mx-auto">
-                <div className="h-full rounded-2xl overflow-hidden bg-white/5 backdrop-blur-sm">
-                  <div className="relative h-48 md:h-64">
-                    <Image 
-                      src={`/${questions[currentIndex].image}`}
-                      alt={questions[currentIndex].question}
-                      width={1200}  // Optimal width for full-width display
-                      height={800} // 3:2 aspect ratio
-                      sizes="(max-width: 768px) 100vw, 80vw" // Responsive sizing
-                      priority={currentIndex < 2} // Only prioritize first 2 images
-                      quality={85}
-                      className="object-cover"
-                      loading={currentIndex > 1 ? "lazy" : "eager"} // Lazy load non-visible images
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60" />
-                  </div>
-                  <div className="p-6 md:p-8 space-y-4">
-                    <h3 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                      {questions[currentIndex].question}
-                    </h3>
-                    <p className="text-gray-300 text-lg">
-                      {questions[currentIndex].description}
-                    </p>
+              <div className="w-full max-w-4xl mx-auto">
+                <div className="relative h-[500px] rounded-2xl overflow-hidden">
+                  <Image 
+                    src={`/${questions[currentIndex].image}`}
+                    alt={questions[currentIndex].question}
+                    fill
+                    priority
+                    className="absolute inset-0 object-cover brightness-50"
+                    sizes="(max-width: 1280px) 100vw, 1280px"
+                  />
+                  <div className="absolute inset-0 bg-black/70" />
+                  <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8 md:p-12">
+                    <div className="max-w-3xl">
+                      <h3 className="text-2xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">
+                        {questions[currentIndex].question}
+                      </h3>
+                      <p className="text-gray-200 text-lg md:text-xl">
+                        {questions[currentIndex].description}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
             </motion.div>
           </div>
-          {/* Swipe Hint */}
-          {showSwipeHint && (
-              <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1 }}
-                className="absolute top-2/1 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 p-2 rounded-full"
-              >
-                <MoveHorizontal className="w-5 h-5 text-blue-400" />
-                <span className="text-sm text-gray-300">Deslize para navegar</span>
-              </motion.div>
-            )}
+
           {/* Dots Navigation */}
           <div className="flex justify-center gap-2 mt-8">
             {questions.map((_, index) => (
@@ -217,13 +214,11 @@ export function ImmersiveQuestions() {
         >
           <div className="absolute inset-0 z-0">
             <Image
-              src="/questions/6.jpg"
+              src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?q=80&w=2670&auto=format&fit=crop"
               alt="Call to action"
-              width={1920}  // Full HD width
-              height={1080} // Full HD height (16:9 aspect ratio)
-              sizes="100vw"  // Full viewport width
-              quality={60}  // Lower quality since it's a background with opacity
+              fill
               className="w-full h-full object-cover opacity-20"
+              sizes="100vw"
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/90" />
@@ -243,7 +238,6 @@ export function ImmersiveQuestions() {
           </div>
         </motion.div>
       </motion.div>
-     
     </section>
   );
 }

@@ -3,7 +3,6 @@ import { BackgroundBeams } from "@/components/ui/aceternity/background-beams";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Vortex } from "../ui/vortex";
 import Image from "next/image";
 
 export function Hero() {
@@ -63,25 +62,6 @@ export function Hero() {
               <span className="text-lg font-semibold text-blue-400">Transforme visitantes em clientes fiéis!</span>
               <div className="h-px flex-1 bg-white/20" />
             </div>
-          </div>
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl blur-3xl opacity-30" />
-            <Image
-              src="/logomarca.webp"
-              alt="Landing Page Mockup"
-              width={600}  // Reduced from 1080
-              height={600} // Reduced from 1080
-              sizes="(max-width: 768px) 100vw, 50vw" // Responsive sizing
-              priority
-              fetchPriority="high"
-              quality={85}
-              className="relative rounded-xl shadow-2xl"
-              style={{
-                color: 'transparent',
-                maxWidth: '100%',
-                height: 'auto'
-              }}
-            />
           </div>
         </div>
       </div>
