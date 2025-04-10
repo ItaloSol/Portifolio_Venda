@@ -11,7 +11,7 @@ const testimonials = [
     name: "Advocacia Bressan",
     role: "Advocacia Bressan",
     image: "/images/advocacia.webp",
-    content: "A diferença da minha página de antes e depois do seu trabalho é surreal. Agora tenho uma página que passa credibilidade e consegue retratar todos os serviços que o meu escritório oferece. \n Obrigado por todo o apoio durante o processo criativo e profissional!!.",
+    content: "A transformação da minha página foi extraordinária após o seu trabalho. Agora tenho uma página completa e que passa credibilidade.",
     url: "https://advocaciabressan.com/",
     company: "Advocacia Bressan",
   },
@@ -160,10 +160,10 @@ export function Testimonials() {
               }}
               className="absolute w-full"
             >
-              <div className="w-full max-w-4xl  mx-auto">
+              <div className="w-full max-w-4xl mb-4 mx-auto">
                 <div className="relative rounded-2xl overflow-hidden bg-white/5 backdrop-blur-sm p-8 md:p-12">
                   <Quote className="absolute top-6 left-6 w-12 h-12 text-blue-400/20" />
-                  <div className="relative z-10 flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                  <div className="relative z-10 flex flex-col md:flex-row items-center md:gap-12">
                     <div className="flex-shrink-0 flex justify-center items-center">
                       <div className="relative">
                         <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden ring-4 ring-blue-400/20 flex justify-center items-center">

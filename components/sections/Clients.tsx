@@ -10,8 +10,12 @@ const clients = [
     logo: "/images/sorrimais.webp",
   },
   {
-    name: "Dançarina Luanda Ribeiro",
-    logo: "/images/luanda.webp",
+    name: "Advocacia Bressan",
+    logo: "/images/advocacia.webp",
+  },
+  {
+    name: "Encapsualados Bioreino",
+    logo: "/images/bioreino.webp",
   },
   {
     name: "Agencia Royal Motors",
@@ -22,12 +26,8 @@ const clients = [
     logo: "/images/grafex.webp",
   },
   {
-    name: "Encapsualados Bioreino",
-    logo: "/images/bioreino.webp",
-  },
-  {
-    name: "Advocacia Bressan",
-    logo: "/images/advocacia.webp",
+    name: "Dançarina Luanda Ribeiro",
+    logo: "/images/luanda.webp",
   },
   {
     name: "Franquias PaiTech",

@@ -3,72 +3,69 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 const plans = [
-  
   {
     name: "Pagina Simples",
-    price: "Apartir de R$529",
+    price: "R$489",
     features: [
-      "Recomendado para pequenos projetos",
-      "Design responsivo mobile-first",
-      "Elementos de urgência/escassez",
-      "Formulários otimizados",
-      "Animações e interatividades",
-      "CTAs estrategicamente posicionados",
-      "Carregamento otimizado",
-      "1 revisão de conversão",
-      "Suporte por 30 dias",
+      "Página única com scroll contínuo",
+      "Headline direta e objetiva",
+      "Imagem estática ou ilustração básica",
+      "Um único CTA (botão de ação) acima da dobra",
+      "Formulário mínimo (nome + e‑mail)",
+      "Layout responsivo (adaptado ao mobile)",
+      "Texto enxuto, sem seções extras",
+      "Sem otimização SEO avançada",
+      "Sem integrações (apenas direcionamento ao whatsapp)",
+      "Carregamento rápido por ausência de scripts pesados",
     ],
   },
   {
     name: "Básico",
-    price: "Apartir de R$649",
+    price: "R$649",
     features: [
-      "Landing page otimizada",
-      "Design responsivo",
-      "3 revisões",
-      "Suporte por 30 dias",
-      "DNS incluso",
-      "Elementos de social proof",
-      "Seção de depoimentos",
-      "Integração com redes sociais",
-      "Analytics básico",
-      "Otimização de velocidade",
+      "Multi‑seções: apresentação, benefícios, plano/preço, FAQ",
+      "Design limpo com identidade visual da marca",
+      "Formulário completo (nome, e‑mail, telefone)",
+      "Botões de CTA repetidos ao longo da página",
+      "Imagens otimizadas e de boa qualidade",
+      "SEO on‑page: meta tags, títulos e descrições",
+      "Google Analytics ou similar instalado",
+      "Integração com WhatsApp ou chat simples",
+      "Layout responsivo aprimorado (tablet + desktop)",
+      "Velocidade de carregamento otimizada (compressão de imagens)",
     ],
   },
   {
     name: "Profissional",
-    price: "R$ 1.480",
+    price: "R$ 1.489",
     features: [
-      "Tudo do Básico +",
-      "Copywriting avançado",
-      "A/B Testing",
-      "Suporte por 90 dias",
-      "Integrações personalizadas",
-      "DNS incluso",
-      "Pop-ups inteligentes",
-      "Análise de comportamento",
-      "Otimização SEO avançada",
+      "Copywriting persuasivo em todas as seções",
+      "Animações sutis e transições para engajamento",
+      "Teste A/B de títulos ou CTAs",
+      "Integrações com CRM (e‑mail marketing, automação)",
+      "Chatbot ou atendimento em tempo real",
+      "SEO técnico: schema markup, URLs amigáveis",
+      "Prova social: depoimentos, selos de confiança",
+      "Vídeo de apresentação ou background em loop",
+      "Garantia e políticas claras (devolução, privacidade)",
+      "Otimização contínua de performance e UX",
     ],
     highlighted: true,
   },
   {
-    name: "Premium",
-    price: "De R$2.600 até R$3.897",
+    name: "Site e Landing page Premium",
+    price: "De R$2.299 até R$3.897",
     features: [
-      "Tudo do Profissional +",
-      "Consultoria estratégica",
-      "Otimização mensal",
-      "Suporte prioritário",
-      "Relatórios avançados",
-      "DNS incluso",
-      "Chat ao vivo",
-      "Integração com CRM",
-      "Automação de marketing",
-      "Testes multivariados",
-      "Personalização dinâmica",
-      "Segmentação avançada",
-      "Remarketing integrado",
-      "Dashboard personalizado",
+      "Design exclusivo sob medida, sem templates",
+      "Personalização dinâmica de conteúdo por visitante",
+      "Multi‑idiomas e localização geográfica",
+      "Análises avançadas (heatmaps, funil de conversão)",
+      "Integração completa com plataformas de e‑commerce/ERP",
+      "Chatbot inteligente e suporte 24/7",
+      "CMS customizado para atualizações fáceis",
+      "Vídeos interativos e backgrounds em alta resolução",
+      "Certificações de segurança (SSL avançado, GDPR)",
+      "Otimizações mensais e suporte prioritário 24/7",
     ],
   },
 ];
@@ -93,7 +90,7 @@ export function Pricing() {
         </div>
         <div className="flex items-center gap-4 text-gray-400" role="note">
           <div className="h-px flex-1 bg-white/20" aria-hidden="true" />
-          <span>Parcerias de ganho mutúo tendem a conseguir um preço menor que a tabela de preços fixos!</span>
+          <span>Todos os planos recebem manutenção e revisão.</span>
           <div className="h-px flex-1 bg-white/20" aria-hidden="true" />
         </div>
         <div 
@@ -156,7 +153,7 @@ export function Pricing() {
           ))}
         </div>
         <p className="text-center text-gray-400 mt-8" role="note">
-          Hospedagem e domínio personalizado estão inclusos em todos os planos até o momento.
+          Hospedagem gratuita em todos os planos.
         </p>
       </div>
     </section>
