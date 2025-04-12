@@ -8,17 +8,17 @@ import Image from "next/image";
 const photos = [
   // Nível Simples
   {
-    id: 1,
-    src: "/preview/LP_ADS.webp",
-    alt: "Landing Page Simples",
-    title: "Versão Básica",
-    level: "simples"
-  },
-  {
     id: 2,
     src: "/preview/aplicativo.webp",
     alt: "Design Minimalista",
     title: "Layout Inicial",
+    level: "simples"
+  },
+  {
+    id: 1,
+    src: "/preview/LP_ADS.webp",
+    alt: "Landing Page Simples",
+    title: "Versão Básica",
     level: "simples"
   },
   {
@@ -52,6 +52,14 @@ const photos = [
   },
   // Nível Profissional
   {
+    id: 9,
+    src: "/preview/revolucao.webp",
+    alt: "Acabamento Premium",
+    title: "Modelo Elite",
+    level: "profissional",
+    video: "IaLRjWoqckU",
+  },
+  {
     id: 7,
     src: "/preview/loja.webp",
     alt: "Landing Page Premium",
@@ -66,15 +74,8 @@ const photos = [
     title: "Layout Profissional",
     level: "profissional",
     video: "9SZzjt6x0SY",
-  },
-  {
-    id: 9,
-    src: "/preview/revolucao.webp",
-    alt: "Acabamento Premium",
-    title: "Modelo Elite",
-    level: "profissional",
-    video: "IaLRjWoqckU",
   }
+  
 ];
 
 type GalleryLevel = "simples" | "basico" | "profissional";
