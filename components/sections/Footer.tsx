@@ -57,7 +57,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-6 pt-4 border-t border-white/10 text-center text-gray-400 text-sm">
-          <p>© 2024 Landing Page Pro. Todos os direitos reservados.</p>
+          <p>© 2024 Landing Page Craft. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>

@@ -1,10 +1,10 @@
 export const getOrganizationSchema = () => ({
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "LandingCraft",
+  "name": "PageCraft",
   "description": "Especialistas em criar landing pages de alta conversão",
-  "url": "https://landingcraft.com.br",
-  "logo": "https://landingcraft.com.br/logo.webp",
+  "url": "https://vendalandingpage.web.app",
+  "logo": "https://vendalandingpage.web.app/logo.webp",
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "+55-61-99300-3980",
@@ -36,7 +36,7 @@ export const getServiceSchema = () => ({
   "name": "Landing Page Development",
   "provider": {
     "@type": "Organization",
-    "name": "LandingCraft"
+    "name": "PageCraft"
   },
   "areaServed": "BR",
   "hasOfferCatalog": {

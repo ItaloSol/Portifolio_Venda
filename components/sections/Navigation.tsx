@@ -39,7 +39,7 @@ export function Navigation({ isMenuOpen, setIsMenuOpen }: NavigationProps) {
               className="h-12 w-auto mr-2"
               priority
             />
-            <span className="font-bold text-xl">LandingCraft</span>
+            <span className="font-bold text-xl">PageCraft</span>
           </div>
           
           <div className="hidden md:flex items-center space-x-8">
