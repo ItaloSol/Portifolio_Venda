@@ -67,7 +67,7 @@ export function ImmersiveQuestions() {
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
   const whatsappMessage = encodeURIComponent("Olá! Gostaria de saber mais sobre como aumentar minhas conversões com uma landing page profissional.");
-  const whatsappLink = `https://wa.me/5561993003980?text=${whatsappMessage}`;
+  const whatsappLink = `https://wa.me/556199315616?text=${whatsappMessage}`;
 
   const paginate = (newDirection: number) => {
     setDirection(newDirection);

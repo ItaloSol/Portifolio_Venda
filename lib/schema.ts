@@ -9,7 +9,6 @@ export const getOrganizationSchema = () => ({
     "@type": "ContactPoint",
     "telephone": "+55-61-99300-3980",
     "contactType": "sales",
-    "email": "italo.sol100@gmail.com",
     "availableLanguage": "Portuguese"
   },
   "sameAs": [

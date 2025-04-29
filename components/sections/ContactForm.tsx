@@ -84,7 +84,7 @@ export function ContactForm() {
 
       if (response.ok) {
         // Open WhatsApp in a new tab
-        window.open(`https://wa.me/5561993003980?text=${message}`, '_blank');
+        window.open(`https://wa.me/556199315616?text=${message}`, '_blank');
       } else {
         throw new Error('Failed to submit form');
       }

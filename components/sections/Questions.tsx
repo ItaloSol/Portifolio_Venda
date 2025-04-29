@@ -55,7 +55,7 @@ export function Questions() {
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
   const whatsappMessage = encodeURIComponent("Olá! Gostaria de conversar sobre como posso melhorar minha presença online.");
-  const whatsappLink = `https://wa.me/5561993003980?text=${whatsappMessage}`;
+  const whatsappLink = `https://wa.me/556199315616?text=${whatsappMessage}`;
 
   const paginate = (newDirection: number) => {
     setDirection(newDirection);

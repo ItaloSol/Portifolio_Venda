@@ -7,14 +7,14 @@ import Image from "next/image";
 
 export function Hero() {
   const whatsappMessage = encodeURIComponent("Olá! Gostaria de solicitar uma proposta para uma landing page.");
-  const whatsappLink = `https://wa.me/5561993003980?text=${whatsappMessage}`;
+  const whatsappLink = `https://wa.me/556199315616?text=${whatsappMessage}`;
 
   return (
-    <section id="Home" className="relative min-h-screen flex items-center">
+    <section id="Home" className="relative min-h-screen flex items-center justify-center">
       <BackgroundBeams />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 w-full">
+        <div className="grid md:grid-cols-1 gap-12 items-center justify-items-center text-center">
+          <div className="space-y-8 max-w-3xl">
             <div className="space-y-2">
               <motion.div
                 initial={{ opacity: 0, x: -20 }}

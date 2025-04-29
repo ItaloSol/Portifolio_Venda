@@ -93,7 +93,7 @@ export default function Home() {
         >
           <Navigation isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
           <Hero />
-          <LeadModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+          {/* <LeadModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} /> */}
 
           <motion.div
             whileInView={{ x: 0, opacity: 1 }}
@@ -178,7 +178,7 @@ export default function Home() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               viewport={{ once: true }}
             >
-              <Pricing />
+              {/* <Pricing /> */}
             </motion.div>
 
             <motion.div

@@ -12,7 +12,7 @@ interface NavigationProps {
 
 export function Navigation({ isMenuOpen, setIsMenuOpen }: NavigationProps) {
   const whatsappMessage = encodeURIComponent("Olá! Gostaria de solicitar uma proposta para uma landing page.");
-  const whatsappLink = `https://wa.me/5561993003980?text=${whatsappMessage}`;
+  const whatsappLink = `https://wa.me/556199315616?text=${whatsappMessage}`;
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();

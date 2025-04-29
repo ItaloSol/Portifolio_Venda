@@ -15,8 +15,7 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-2">Contato</h3>
             <ul className="space-y-1 text-gray-400 text-sm">
-              <li>italo.sol100@gmail.com</li>
-              <li>(61) 9 9300-3980</li>
+              <li>(61) 9 931-5616</li>
             </ul>
           </div>
           <div>

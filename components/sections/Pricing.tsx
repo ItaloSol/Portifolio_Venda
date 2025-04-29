@@ -73,7 +73,7 @@ const plans = [
 export function Pricing() {
   const getWhatsAppLink = (plan: string, price: string) => {
     const message = encodeURIComponent(`Olá! Gostaria de contratar o plano ${plan} ${price} para minha landing page.`);
-    return `https://wa.me/5561993003980?text=${message}`;
+    return `https://wa.me/556199315616?text=${message}`;
   };
 
   return (
