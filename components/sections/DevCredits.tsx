@@ -4,9 +4,9 @@ import { memo } from "react";
 const testimonials = [
   {
     quote:
-     "Com dedicação, honestidade e profissionalismo, construo soluções digitais que impulsionam a presença online de empresas. Tenho 4 anos de experiência em desenvolvimento web e utilizo as melhores tecnologias para atender às necessidades de cada projeto. Trabalho com Next.js ou WordPress, garantindo flexibilidade e personalização para alcançar os melhores resultados.",
+     "Eu ajudo comércios e pequenas empresas a serem encontrados por quem pesquisa no celular. Há 4 anos crio sites e soluções digitais, e cuido pessoalmente de cada projeto: escrevo os textos, construo o site e acompanho até ele estar no ar. Você fala direto comigo do começo ao fim.",
     name: "Italo Sol",
-    designation: "Desenvolvedor de Landing Pages",
+    designation: "Criador de Sites Profissionais",
     src: "/images/foto_perfil.webp",
   }
 ];

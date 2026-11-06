@@ -9,7 +9,7 @@ const testimonials = [
   {
     id: -1,
     name: "Advocacia Bressan",
-    role: "Advocacia Bressan",
+    role: "João Bressan",
     image: "/images/advocacia.webp",
     content: "A transformação da minha página foi extraordinária após o seu trabalho. Agora tenho uma página completa e que passa credibilidade.",
     url: "https://advocaciabressan.com/",
@@ -17,17 +17,17 @@ const testimonials = [
   },
   {
     id: 1,
-    name: "Clinica Sorrir Mais",
-    role: "Cliente Satisfeito",
+    name: "Clínica Sorrir Mais",
+    role: "Mariana Amaral",
     image: "/images/sorrimais.webp",
     content: "A parceria com Italo Sol tem sido extremamente benéfica. A qualidade do serviço é excepcional.",
     url: "https://sorrirmais.netlify.app/",
-    company: "Clinica Sorrir Mais",
+    company: "Clínica Sorrir Mais",
   },
   {
     id: 2,
     name: "Dançarina Luanda Ribeiro",
-    role: "Cliente Satisfeito",
+    role: "Luanda Ribeiro",
     image: "/images/luanda.webp",
     content: "Os resultados foram além das expectativas. Italo Sol é muito profissional e dedicado.",
     url: "https://luandaribeirohd.web.app/",
@@ -35,17 +35,17 @@ const testimonials = [
   },
   {
     id: 3,
-    name: "Encapsualados Bioreino",
-    role: "Cliente Satisfeito",
+    name: "Encapsulados BioReino",
+    role: "Glaysson",
     image: "/images/bioreino.webp",
     content: "Italo Sol é extremamente competente e os resultados falam por si. Excelente parceria!",
     url: "https://bioreinooficial.com.br/",
-    company: "Encapsualados Bioreino",
+    company: "Encapsulados BioReino",
   },
   {
     id: 4,
     name: "Gráfica do Exército",
-    role: "Cliente Satisfeito",
+    role: "Shirley Vaz",
     image: "/images/grafex.webp",
     content: "A qualidade do trabalho de Italo Sol é incomparável. Estamos muito satisfeitos com os resultados.",
     url: "https://www.grafex.eb.mil.br/portifolio/",
@@ -53,12 +53,12 @@ const testimonials = [
   },
   {
     id: 5,
-    name: "Agencia Royal Motors",
-    role: "Cliente Satisfeito",
+    name: "Agência Royal Motors",
+    role: "Pedro Henrique",
     image: "/images/royal.webp",
     content: "A nossa agência viu um crescimento significativo após a colaboração com Italo Sol. Altamente recomendado!",
     url: "#",
-    company: "Agencia Royal Motors",
+    company: "Agência Royal Motors",
   }
 ];
 

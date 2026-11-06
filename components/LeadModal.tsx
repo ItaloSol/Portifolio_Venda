@@ -172,10 +172,10 @@ export function LeadModal({ isOpen: controlledIsOpen, onClose }: LeadModalProps)
 
         <div className="text-center mb-6">
           <h2 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
-            Aumente Seus Lucros Hoje!
+            Sua empresa já tem um site profissional?
           </h2>
           <p className="text-gray-300 mt-2">
-            Descubra como uma landing page profissional pode transformar seus visitantes em clientes.
+            Deixe seu contato e eu te mostro como seria o site da sua empresa, sem compromisso.
           </p>
         </div>
 

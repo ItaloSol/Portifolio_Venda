@@ -2,12 +2,12 @@ export const getOrganizationSchema = () => ({
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "PageCraft",
-  "description": "Especialistas em criar landing pages de alta conversão",
+  "description": "Criação de sites profissionais para comércios e pequenas empresas",
   "url": "https://vendalandingpage.web.app",
   "logo": "https://vendalandingpage.web.app/logo.webp",
   "contactPoint": {
     "@type": "ContactPoint",
-    "telephone": "+55-61-99300-3980",
+    "telephone": "+55-61-99931-5616",
     "contactType": "sales",
     "availableLanguage": "Portuguese"
   },
@@ -32,7 +32,7 @@ export const getFAQSchema = (faqs: Array<{ question: string; answer: string }>) 
 export const getServiceSchema = () => ({
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Landing Page Development",
+  "name": "Criação de Site Profissional",
   "provider": {
     "@type": "Organization",
     "name": "PageCraft"
@@ -40,15 +40,15 @@ export const getServiceSchema = () => ({
   "areaServed": "BR",
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-    "name": "Landing Page Services",
+    "name": "Planos de Site Profissional",
     "itemListElement": [
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Landing Page Simples",
-          "description": "Landing page básica com design responsivo",
-          "price": "480",
+          "name": "Site Essencial",
+          "description": "Site de uma página focado em um produto ou serviço, com WhatsApp e versão para celular",
+          "price": "810",
           "priceCurrency": "BRL"
         }
       },
@@ -56,9 +56,9 @@ export const getServiceSchema = () => ({
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Landing Page Profissional",
-          "description": "Landing page otimizada com copywriting avançado e A/B Testing",
-          "price": "1997",
+          "name": "Site Completo",
+          "description": "Site completo para pequenas e médias empresas, com catálogo, identidade visual e otimização para o Google",
+          "price": "1621",
           "priceCurrency": "BRL"
         }
       }

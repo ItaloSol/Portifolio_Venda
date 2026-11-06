@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { useState, useEffect, Suspense } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, MotionConfig } from "framer-motion";
 import { LeadModal } from "@/components/LeadModal";
 import { fadeIn } from "@/lib/animations";
 import { initializeAnalytics } from "@/lib/firebase";
@@ -11,13 +11,12 @@ import { logEvent } from "firebase/analytics";
 // Critical path components loaded imediatamente
 import { Navigation } from "@/components/sections/Navigation";
 import { Hero } from "@/components/sections/Hero";
-import { Questions } from "@/components/sections/Questions";
+import { ReverseInvestigation } from "@/components/sections/ReverseInvestigation";
 import { Stats } from "@/components/sections/Stats";
-import { ImmersiveQuestions } from "@/components/sections/ImmersiveQuestions";
-import { Clients } from "@/components/sections/Clients";
+import { Objections } from "@/components/sections/Objections";
 import { Testimonials } from "@/components/sections/Testimonials";
 // Componentes carregados dinamicamente
-const Gallery = dynamic(() => import("@/components/sections/Gallery").then((mod) => mod.Gallery), {
+const Portfolio = dynamic(() => import("@/components/sections/Portfolio").then((mod) => mod.Portfolio), {
   loading: () => <motion.div className="h-screen animate-pulse bg-gray-900" />,
 });
 
@@ -53,6 +52,19 @@ const Footer = dynamic(() => import("@/components/sections/Footer").then((mod) =
   loading: () => <motion.div className="h-screen animate-pulse bg-gray-900" />,
 });
 
+function Reveal({ children }: { children: React.ReactNode }) {
+  return (
+    <motion.div
+      initial={{ y: 24, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      viewport={{ once: true }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -83,6 +95,7 @@ export default function Home() {
   }, []);
 
   return (
+    <MotionConfig reducedMotion="user">
     <AnimatePresence>
       {isLoaded && (
         <motion.main
@@ -95,116 +108,24 @@ export default function Home() {
           <Hero />
           <LeadModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
 
-          <motion.div
-            whileInView={{ x: 0, opacity: 1 }}
-            initial={{ x: "-100%", opacity: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true }}
-          >
-            <Questions />
-          </motion.div>
-
-          <motion.div
-            whileInView={{ x: 0, opacity: 1 }}
-            initial={{ x: "100%", opacity: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true }}
-          >
-            <Stats />
-          </motion.div>
+          {/* Ordem: promessa > prova rápida > dor > prova real > como funciona > oferta > dúvidas > contato > quem sou eu */}
+          <Reveal><Stats /></Reveal>
+          <Reveal><ReverseInvestigation /></Reveal>
 
           <Suspense fallback={<motion.div className="h-screen animate-pulse bg-gray-900" />}>
-            <motion.div
-              whileInView={{ x: 0, opacity: 1 }}
-              initial={{ x: "-100%", opacity: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              viewport={{ once: true }}
-              key="workProcess"
-            >
-              <WorkProcess />
-            </motion.div>
-
-
-            <motion.div
-              whileInView={{ x: 0, opacity: 1 }}
-              initial={{ x: "100%", opacity: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              viewport={{ once: true }}
-            >
-              <Clients />
-            </motion.div>
-
-            <motion.div
-              whileInView={{ x: 0, opacity: 1 }}
-              initial={{ x: "-100%", opacity: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              viewport={{ once: true }}
-            >
-              <Testimonials />
-            </motion.div>
-
-            <motion.div
-              whileInView={{ x: 0, opacity: 1 }}
-              initial={{ x: "100%", opacity: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              viewport={{ once: true }}
-            >
-              <ImmersiveQuestions />
-            </motion.div>
-
-
-
-            <motion.div
-              whileInView={{ x: 0, opacity: 1 }}
-              initial={{ x: "-100%", opacity: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              viewport={{ once: true }}
-            >
-              <Gallery />
-            </motion.div>
-
-            <motion.div
-              whileInView={{ x: 0, opacity: 1 }}
-              initial={{ x: "100%", opacity: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              viewport={{ once: true }}
-            >
-              <AnimatedTestimonials />
-            </motion.div>
-
-            <motion.div
-              whileInView={{ x: 0, opacity: 1 }}
-              initial={{ x: "-100%", opacity: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              viewport={{ once: true }}
-            >
-              <Pricing />
-            </motion.div>
-
-            <motion.div
-              whileInView={{ x: 0, opacity: 1 }}
-              initial={{ x: "100%", opacity: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              viewport={{ once: true }}
-            >
-              <FAQ />
-            </motion.div>
-
-            <motion.div
-              whileInView={{ x: 0, opacity: 1 }}
-              initial={{ x: "-100%", opacity: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              viewport={{ once: true }}
-            >
-              <ContactForm />
-            </motion.div>
-
-
+            <Reveal><Portfolio /></Reveal>
+            <Reveal><Testimonials /></Reveal>
+            <Reveal><WorkProcess /></Reveal>
+            <Reveal><Pricing /></Reveal>
+            <Reveal><Objections /></Reveal>
+            <Reveal><FAQ /></Reveal>
+            <Reveal><ContactForm /></Reveal>
+            <Reveal><AnimatedTestimonials /></Reveal>
             <Footer />
-
           </Suspense>
         </motion.main>
       )}
     </AnimatePresence>
+    </MotionConfig>
   );
 }
