@@ -8,49 +8,46 @@ import {
 
 const faqs = [
   {
-    question: "Como funciona a fase de Análise?",
-    answer: "Na fase de análise, conduzimos um estudo completo do mercado em que sua empresa atua. Identificamos quem é o seu público-alvo ideal, estudamos as estratégias da concorrência e coletamos informações essenciais para desenvolver uma estratégia personalizada que garanta resultados concretos.",
+    question: "Preciso entender de tecnologia para ter um site?",
+    answer: "Não. Você me conta como funciona o seu negócio e me envia as fotos dos produtos. Eu escrevo os textos, monto o site, coloco no ar e te explico como divulgar. Você só aprova.",
   },
   {
-    question: "O que envolve a fase de Estratégia?",
-    answer: "A fase de estratégia é dedicada ao planejamento meticuloso de cada etapa do projeto. Isso inclui a criação de um cronograma detalhado para conteúdo, a definição de métricas claras de sucesso (KPIs) e a escolha das tecnologias mais inovadoras para atender às necessidades específicas do seu projeto.",
+    question: "Em quanto tempo meu site fica pronto?",
+    answer: "O Site Essencial fica pronto, em média, em 72 horas após a aprovação do conteúdo. O Site Completo e os projetos sob medida têm prazo combinado antes de começar, de acordo com a quantidade de páginas e produtos.",
   },
   {
-    question: "Como funciona a fase de Pagamento?",
-    answer: "Durante a fase de pagamento, solicitamos um adiantamento correspondente a 30% do valor total para dar início ao projeto. O restante é pago na entrega, com diversas opções de pagamento disponíveis, incluindo débito ou PIX à vista, ou parcelamento no cartão de crédito (sujeito a taxas da maquininha).",
+    question: "Como funciona o pagamento?",
+    answer: "Você paga 30% para iniciar e o restante só na entrega. Aceito PIX, débito ou cartão de crédito (o parcelamento segue as taxas da maquininha). Não existe mensalidade obrigatória.",
   },
   {
-    question: "Como é realizada a fase de Desenvolvimento?",
-    answer: "Na fase de desenvolvimento, focamos em criar uma experiência única para os usuários. Desenvolvemos um design responsivo que se adapta perfeitamente a qualquer dispositivo, aplicamos as melhores práticas de SEO e realizamos testes A/B para garantir que sua landing page entregue o máximo desempenho e conversões.",
+    question: "Já tenho Instagram. O site substitui?",
+    answer: "Não substitui, complementa. O Instagram atrai pessoas e o site organiza seus produtos, diferenciais, endereço e contato em um endereço próprio, que aparece no Google e que você coloca na bio, no WhatsApp e nos materiais da loja.",
   },
   {
-    question: "O que acontece na fase de Lançamento?",
-    answer: "Ao chegarmos à fase de lançamento, publicamos sua landing page em ambiente ao vivo. Também iniciamos o monitoramento de métricas de desempenho e realizamos ajustes finais para garantir que tudo esteja perfeitamente otimizado desde o primeiro momento.",
+    question: "Meu site vai aparecer no Google?",
+    answer: "O site é entregue com as configurações recomendadas para o Google: títulos, descrições, velocidade e versão para celular. Ninguém pode garantir honestamente o primeiro lugar, mas um site bem feito é a base para sua empresa ser encontrada. Também te oriento a conectar o site ao Perfil da Empresa no Google (Maps).",
   },
   {
-    question: "O que é otimização para SEO?",
-    answer: "SEO, ou otimização para mecanismos de busca, é o processo de melhorar sua página para que ela alcance posições mais altas nos resultados de busca. Isso envolve otimizar o conteúdo, melhorar a performance geral do site e utilizar palavras-chave estratégicas para atrair mais tráfego qualificado.",
+    question: "Um site garante mais vendas?",
+    answer: "Nenhum site sozinho garante vendas. Isso também depende de divulgação, oferta e atendimento. O que ele faz é transformar melhor quem já procura por você: o cliente encontra as informações, confia na empresa e chega ao seu WhatsApp pronto para comprar. Mais acima nesta página você pode calcular quantas vendas pagam o site.",
   },
   {
-    question: "Quanto tempo leva para criar uma landing page?",
-    answer: "A criação de uma landing page geralmente leva em média 72 horas após a aprovação do projeto, mas o prazo pode variar dependendo do nível de personalização e da complexidade do design solicitado.",
+    question: "Qual plano é o certo para mim?",
+    answer: "Se você quer divulgar um produto ou serviço principal, o Site Essencial resolve. Se quer apresentar a empresa inteira, com catálogo e diferenciais, o Site Completo é o mais indicado. Se quer vender pela internet com carrinho e pagamento, é um Projeto Sob Medida. Na dúvida, me chame no WhatsApp que eu te indico com sinceridade.",
   },
   {
-    question: "As landing pages são otimizadas para SEO?",
-    answer: "Sim, todas as landing pages que criamos seguem rigorosamente as melhores práticas de SEO. Nosso objetivo é garantir que seu site tenha visibilidade máxima nos mecanismos de busca, aumentando o tráfego e as conversões.",
-  },
-  {
-    question: "Posso solicitar alterações após o lançamento?",
-    answer: "Sem dúvida! Após o lançamento, oferecemos um período de suporte que inclui revisões e ajustes, conforme o plano escolhido. Isso garante que sua landing page esteja sempre alinhada com seus objetivos de negócio.",
+    question: "Posso pedir alterações depois que o site estiver no ar?",
+    answer: "Sim. Após a entrega há um período de revisões conforme o plano escolhido. Depois disso, atualizações podem ser feitas sob demanda, com valor combinado antes.",
   },
 ];
 
 export function FAQ() {
   return (
-    <section className="relative py-20">
+    <section id="faq" className="relative py-20">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">Perguntas Frequentes</h2>
+          <p className="text-gray-300">Tudo o que você precisa saber antes de ter o site da sua empresa.</p>
         </div>
         <Accordion type="single" collapsible className="space-y-4">
           {faqs.map((faq, index) => (

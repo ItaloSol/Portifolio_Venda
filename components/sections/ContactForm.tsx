@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Checkbox } from '@/components/ui/checkbox';
 import { createHash } from 'crypto';
 import Loader from '@/components/styled-components';
+import { whatsappLink, formatBRL, PRECO_ESSENCIAL, PRECO_COMPLETO } from '@/lib/whatsapp';
 
 export function ContactForm() {
   const [formData, setFormData] = useState({
@@ -43,12 +44,11 @@ export function ContactForm() {
     e.preventDefault();
     setIsLoading(true);
     
-    const message = encodeURIComponent(
-      `Olá! Me chamo ${formData.name} da empresa ${formData.company}.\n` +
+    const message =
+      `Olá, Ítalo! Me chamo ${formData.name}, da empresa ${formData.company}, e quero um site profissional.\n` +
       `Email: ${formData.email}\n` +
       `Telefone: ${formData.phone}\n` +
-      `Orçamento desejado: ${formData.budget}`
-    );
+      `Interesse: ${formData.budget}`;
 
     // Track form submission with hashed data
     if ((window as any).fbq) {
@@ -84,7 +84,7 @@ export function ContactForm() {
 
       if (response.ok) {
         // Open WhatsApp in a new tab
-        window.open(`https://wa.me/556199315616?text=${message}`, '_blank');
+        window.open(whatsappLink(message), '_blank');
       } else {
         throw new Error('Failed to submit form');
       }
@@ -145,13 +145,12 @@ export function ContactForm() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">
-              Solicite
-              <br />
-              uma
-              <br />
-              Proposta
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Vamos tirar o site da sua empresa do papel?
             </h2>
+            <p className="text-gray-300 text-lg">
+              Preencha em 30 segundos. Eu te respondo no WhatsApp com uma proposta pensada para o seu negócio, sem compromisso.
+            </p>
           </div>
           {isLoading ? (
             <div className="flex justify-center items-center min-h-[400px]">
@@ -167,7 +166,7 @@ export function ContactForm() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <Input
-                  placeholder="Nome"
+                  placeholder="Seu nome"
                   name="Name"
                   className="bg-white/5 border-white/10 text-white placeholder:text-gray-400"
                   value={formData.name}
@@ -178,7 +177,7 @@ export function ContactForm() {
               <div>
                 <Input
                   type="email"
-                  placeholder="Email"
+                  placeholder="Seu e-mail"
                   name="Email"
                   className="bg-white/5 border-white/10 text-white placeholder:text-gray-400"
                   value={formData.email}
@@ -203,7 +202,7 @@ export function ContactForm() {
             </div>
             <div>
               <Input
-                placeholder="Empresa"
+                placeholder="Nome da sua empresa"
                 name="Company"
                 className="bg-white/5 border-white/10 text-white placeholder:text-gray-400"
                 value={formData.company}
@@ -220,40 +219,22 @@ export function ContactForm() {
               >
                 <SelectTrigger 
                   className="bg-white/5 border-white/10 text-white"
-                  aria-label="Selecione o intervalo de orçamento"
+                  aria-label="Selecione o tipo de site"
                 >
-                  <SelectValue placeholder="Selecione uma opção" />
+                  <SelectValue placeholder="Qual site você procura?" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem 
-                    value="300-500"
-                    aria-label="De 300 a 500 reais"
-                  >
-                    R$ 300 - R$ 500
+                  <SelectItem value={`Site Essencial (${formatBRL(PRECO_ESSENCIAL)})`}>
+                    Site Essencial: {formatBRL(PRECO_ESSENCIAL)}
                   </SelectItem>
-                  <SelectItem 
-                    value="500-1000"
-                    aria-label="De 500 a 1000 reais"
-                  >
-                    R$ 500 - R$ 1.000
+                  <SelectItem value={`Site Completo (${formatBRL(PRECO_COMPLETO)})`}>
+                    Site Completo: {formatBRL(PRECO_COMPLETO)}
                   </SelectItem>
-                  <SelectItem 
-                    value="1000-3000"
-                    aria-label="De 1000 a 3000 reais"
-                  >
-                    R$ 1.000 - R$ 3.000
+                  <SelectItem value="Projeto sob medida (loja virtual / e-commerce)">
+                    Loja virtual / projeto sob medida
                   </SelectItem>
-                  <SelectItem 
-                    value="3000-5000"
-                    aria-label="De 3000 a 5000 reais"
-                  >
-                    R$ 3.000 - R$ 5.000
-                  </SelectItem>
-                  <SelectItem 
-                    value="5000+"
-                    aria-label="Acima de 5000 reais"
-                  >
-                    R$ 5.000+
+                  <SelectItem value="Ainda não sei, quero orientação">
+                    Ainda não sei, quero uma orientação
                   </SelectItem>
                 </SelectContent>
               </Select>
@@ -273,12 +254,12 @@ export function ContactForm() {
               type="submit"
               className="w-full bg-gradient-to-r from-blue-500 to-purple-500"
               disabled={!formData.lgpd}
-              aria-label="Select Concordo"
+              aria-label="Receber minha proposta no WhatsApp"
             >
-              Enviar Solicitação
+              Receber minha proposta no WhatsApp
             </Button>
             <p className="text-center text-sm text-gray-400">
-              Seus dados estão seguros e serão processados de acordo com nossa política de privacidade e os Termos das Ferramentas da Meta para Empresas.
+              Seus dados são usados apenas para responder ao seu contato e são tratados conforme os Termos das Ferramentas da Meta para Empresas.
               <br />
               Tempo médio de resposta: 24 horas úteis
             </p>

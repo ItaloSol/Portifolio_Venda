@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { whatsappLink } from "@/lib/whatsapp";
 
 export function Footer() {
   return (
@@ -9,30 +10,22 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-2">Sobre Nós</h3>
             <p className="text-gray-400 text-sm">
-              Especialistas em criar landing pages de alta conversão que transformam visitantes em clientes.
+              Sites profissionais para comércios e pequenas empresas serem encontrados, transmitirem confiança e receberem mais contatos no WhatsApp.
             </p>
           </div>
           <div>
             <h3 className="text-lg font-semibold mb-2">Contato</h3>
             <ul className="space-y-1 text-gray-400 text-sm">
-              <li>(61) 9 931-5616</li>
+              <li><a href={whatsappLink("Olá, Ítalo! Vim pelo seu site.")} target="_blank" rel="noopener noreferrer" className="hover:text-white">WhatsApp: (61) 9 9931-5616</a></li>
             </ul>
           </div>
           <div>
-            <h3 className="text-lg font-semibold mb-2">Links Úteis</h3>
+            <h3 className="text-lg font-semibold mb-2">Navegação</h3>
             <ul className="space-y-1">
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white text-sm">Blog</a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white text-sm">Casos de Sucesso</a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white text-sm">Política de Privacidade</a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white text-sm">Termos de Uso</a>
-              </li>
+              <li><a href="#pricing" className="text-gray-400 hover:text-white text-sm">Planos e preços</a></li>
+              <li><a href="#portfolio" className="text-gray-400 hover:text-white text-sm">Portfólio</a></li>
+              <li><a href="#faq" className="text-gray-400 hover:text-white text-sm">Perguntas frequentes</a></li>
+              <li><a href="#contact" className="text-gray-400 hover:text-white text-sm">Pedir proposta</a></li>
             </ul>
           </div>
           <div>
@@ -56,7 +49,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-6 pt-4 border-t border-white/10 text-center text-gray-400 text-sm">
-          <p>© 2024 Landing Page Craft. Todos os direitos reservados.</p>
+          <p>© {new Date().getFullYear()} PageCraft, por Ítalo Sol. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>

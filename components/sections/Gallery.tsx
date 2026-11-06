@@ -17,7 +17,7 @@ const photos = [
   {
     id: 1,
     src: "/preview/LP_ADS.webp",
-    alt: "Landing Page Simples",
+    alt: "Modelo de Site Essencial",
     title: "Versão Básica",
     level: "simples"
   },
@@ -32,7 +32,7 @@ const photos = [
   {
     id: 4,
     src: "/preview/eletronico.webp",
-    alt: "Landing Page Intermediária",
+    alt: "Modelo de Site Completo",
     title: "Design Aprimorado",
     level: "basico"
   },
@@ -62,7 +62,7 @@ const photos = [
   {
     id: 7,
     src: "/preview/loja.webp",
-    alt: "Landing Page Premium",
+    alt: "Modelo de projeto sob medida",
     title: "Versão Premium",
     level: "profissional",
     video: "c3PIY25CJE8",
@@ -120,11 +120,11 @@ export function Gallery() {
   const getLevelTitle = (level: string) => {
     switch (level) {
       case "simples":
-        return "Nível Simples";
+        return "Site Essencial";
       case "basico":
-        return "Nível Básico";
+        return "Site Completo";
       case "profissional":
-        return "Nível Profissional";
+        return "Sob Medida";
       default:
         return "";
     }
@@ -227,9 +227,9 @@ export function Gallery() {
     <section id="Gallery" className="relative py-12 bg-black">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4 gradient-text">Evolução de Qualidade</h2>
+          <h2 className="text-3xl font-bold mb-4 gradient-text">Veja como o site da sua empresa pode ficar</h2>
           <p className="text-gray-400 max-w-2xl mx-auto text-sm">
-            Conheça nossa progressão de qualidade em diferentes níveis de desenvolvimento
+            Modelos reais de cada plano. Toque em uma imagem para ampliar.
           </p>
         </div>
 

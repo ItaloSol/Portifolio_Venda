@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { whatsappLink as buildWhatsappLink } from "@/lib/whatsapp";
 
 interface NavigationProps {
   isMenuOpen: boolean;
@@ -11,8 +12,7 @@ interface NavigationProps {
 }
 
 export function Navigation({ isMenuOpen, setIsMenuOpen }: NavigationProps) {
-  const whatsappMessage = encodeURIComponent("Olá! Gostaria de solicitar uma proposta para uma landing page.");
-  const whatsappLink = `https://wa.me/556199315616?text=${whatsappMessage}`;
+  const whatsappLink = buildWhatsappLink("Olá, Ítalo! Quero um site profissional para a minha empresa.");
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
@@ -55,11 +55,11 @@ export function Navigation({ isMenuOpen, setIsMenuOpen }: NavigationProps) {
               onClick={(e) => handleScroll(e, "benefits")}
               className="hover:text-blue-400 transition-colors duration-300"
             >
-              Benefícios
+              Por que eu
             </a>
             <a 
-              href="#Gallery" 
-              onClick={(e) => handleScroll(e, "Gallery")}
+              href="#portfolio" 
+              onClick={(e) => handleScroll(e, "portfolio")}
               className="hover:text-blue-400 transition-colors duration-300"
             >
               Portfólio
@@ -69,7 +69,7 @@ export function Navigation({ isMenuOpen, setIsMenuOpen }: NavigationProps) {
               onClick={(e) => handleScroll(e, "pricing")}
               className="hover:text-blue-400 transition-colors duration-300"
             >
-              Preços
+              Planos
             </a>
             <a 
               href="#contact" 
@@ -83,7 +83,7 @@ export function Navigation({ isMenuOpen, setIsMenuOpen }: NavigationProps) {
                 className="bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 transition-all duration-300"
                 aria-label="Solicitar proposta via WhatsApp"
               >
-                Solicite Proposta
+                Quero meu site
               </Button>
             </Link>
           </div>
@@ -115,11 +115,11 @@ export function Navigation({ isMenuOpen, setIsMenuOpen }: NavigationProps) {
               onClick={(e) => handleScroll(e, "benefits")}
               className="block w-full px-4 py-3 hover:bg-white/10 rounded-md transition-colors duration-300 text-center"
             >
-              Benefícios
+              Por que eu
             </a>
             <a 
-              href="#Gallery" 
-              onClick={(e) => handleScroll(e, "Gallery")}
+              href="#portfolio" 
+              onClick={(e) => handleScroll(e, "portfolio")}
               className="block w-full px-4 py-3 hover:bg-white/10 rounded-md transition-colors duration-300 text-center"
             >
               Portfólio
@@ -129,7 +129,7 @@ export function Navigation({ isMenuOpen, setIsMenuOpen }: NavigationProps) {
               onClick={(e) => handleScroll(e, "pricing")}
               className="block w-full px-4 py-3 hover:bg-white/10 rounded-md transition-colors duration-300 text-center"
             >
-              Preços
+              Planos
             </a>
             <a 
               href="#contact" 
@@ -143,7 +143,7 @@ export function Navigation({ isMenuOpen, setIsMenuOpen }: NavigationProps) {
                 className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90 transition-all duration-300 py-6"
                 aria-label="Solicitar proposta via WhatsApp"
               >
-                Solicite Proposta
+                Quero meu site
               </Button>
             </Link>
           </div>

@@ -6,25 +6,25 @@ import Script from 'next/script';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Comprar - Landing Pages Profissionais',
-  description: 'Especialistas em criar landing pages de alta conversão. Transforme visitantes em clientes com designs otimizados, copywriting persuasivo e integrações personalizadas.',
+  title: 'Site Profissional para sua Empresa | Ítalo Sol',
+  description: 'Sites profissionais para comércios e pequenas empresas: seus produtos, diferenciais, endereço e WhatsApp em um só lugar, perfeito no celular. A partir de R$ 810, sem mensalidade.',
   metadataBase: new URL('https://vendalandingpage.web.app/'),
   openGraph: {
-    title: 'Comprar - Landing Pages Profissionais',
-    description: 'Especialistas em criar landing pages de alta conversão. Transforme visitantes em clientes com designs otimizados.',
+    title: 'Site Profissional para sua Empresa | Ítalo Sol',
+    description: 'Sites profissionais para comércios e pequenas empresas: seus produtos, diferenciais, endereço e WhatsApp em um só lugar, perfeito no celular. A partir de R$ 810, sem mensalidade.',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Comprar - Landing Pages Profissionais',
+        alt: 'Site Profissional para sua Empresa | Ítalo Sol',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Comprar - Landing Pages Profissionais',
-    description: 'Especialistas em criar landing pages de alta conversão. Transforme visitantes em clientes.',
+    title: 'Site Profissional para sua Empresa | Ítalo Sol',
+    description: 'Seu cliente pesquisa no celular antes de comprar. Garanta que ele encontre a sua empresa.',
     images: ['/og-image.jpg'],
   },
   alternates: {

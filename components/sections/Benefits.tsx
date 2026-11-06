@@ -9,33 +9,33 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 const benefits = [
   {
-    title: "Foco na Conversão",
-    description: "Direcione visitantes para ações específicas como cadastros, vendas ou agendamentos",
+    title: "Mais contatos no WhatsApp",
+    description: "Cada parte do site leva o visitante a chamar você, pedir orçamento ou agendar",
     icon: Target,
   },
   {
-    title: "Clareza e Simplicidade",
-    description: "Mensagem objetiva e focada que elimina distrações e destaca o valor do seu negócio",
+    title: "Tudo claro em segundos",
+    description: "O cliente entende o que você vende e por que escolher você, sem precisar perguntar",
     icon: Lightbulb,
   },
   {
-    title: "Otimização de Campanhas",
-    description: "Integração perfeita com marketing digital e segmentação precisa de público",
+    title: "Divulgação que funciona",
+    description: "Um endereço próprio para colocar no Instagram, no Google, em anúncios e panfletos",
     icon: BarChart3,
   },
   {
-    title: "Mensuração de Resultados",
-    description: "Acompanhamento detalhado de métricas e ajuste contínuo de estratégias",
+    title: "Saiba quantos te procuram",
+    description: "Veja quantas pessoas visitam o site e de onde elas vêm",
     icon: LayoutDashboard,
   },
   {
-    title: "Custo-Benefício",
-    description: "Desenvolvimento econômico e rápido para testar novos produtos ou serviços",
+    title: "Investimento que se paga",
+    description: "Pagamento único, sem mensalidade, pronto em poucos dias",
     icon: FileCheck,
   },
   {
-    title: "Experiência do Usuário",
-    description: "Navegação intuitiva que facilita a jornada e decisão do cliente",
+    title: "Fácil para o seu cliente",
+    description: "Funciona perfeitamente no celular, que é onde ele pesquisa",
     icon: Users,
   },
 ];
@@ -69,7 +69,7 @@ export function MacbookScrollDemo() {
       <MacbookScroll
         title={
           <span>
-            Você sabe porque uma landing page impressiona seus clientes?. <br /> De uma olhada.
+            Veja como sua empresa pode aparecer para o cliente. <br /> Role e confira.
           </span>
         }
         badge={
@@ -99,9 +99,9 @@ export function Benefits() {
     <section id="benefits" className="relative py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={containerRef}>
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Por que escolher nossas Landing Pages?</h2>
+          <h2 className="text-4xl font-bold mb-4">O que um site profissional faz pela sua empresa</h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            Transforme sua presença digital com landing pages otimizadas para resultados
+            Sua empresa encontrada, apresentada com confiança e recebendo contatos todos os dias
           </p>
         </div>
         

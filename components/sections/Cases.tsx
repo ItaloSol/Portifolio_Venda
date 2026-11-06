@@ -7,28 +7,28 @@ import Link from "next/link";
 const cases = [
   {
     title: "E-commerce da Gráfica",
-    description: "Aumento de 150% nas conversões após implementação da nova landing page de produtos",
+    description: "Aumento de 150% nas conversões após a implementação do novo site de produtos",
     link: 'https://www.grafex.eb.mil.br/portifolio/',
     roi: "+150% ROI",
     image: "/cases/portifolio_grafex.webp",
   },
   {
-    title: "Landing Page Clinica Dentaria",
+    title: "Site da Clínica Odontológica",
     description: "Crescimento de 40% no aumento de clicks sobre a clinica",
     link: 'https://sorrirmais.netlify.app/',
     roi: "+180% ROI",
     image: "/cases/dentista.webp",
   },
   {
-    title: "Landing Page Camping",
-    description: "Cresimento de 50% na conversão de novos hospedes",
+    title: "Site da Pousada e Camping",
+    description: "Crescimento de 50% na conversão de novos hospedes",
     link: 'https://pousadabjnoprice.netlify.app/',
     roi: "+200% ROI",
     image: "/cases/camping.webp",
   },
   {
-    title: "Landing Page Chalé",
-    description: "Cresimento de 55% na conversão de novos hospedes",
+    title: "Site da Pousada e Chalés",
+    description: "Crescimento de 55% na conversão de novos hospedes",
     link: 'https://pousadabvnoprice.netlify.app/',
     roi: "+200% ROI",
     image: "/cases/chales.webp",
@@ -40,8 +40,8 @@ export function Cases() {
     <section id="cases" className="relative py-24 overflow-hidden bg-black/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">Landing Pages de Sucesso</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">Conheça alguns dos nossos casos de sucesso e resultados alcançados</p>
+          <h2 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">Sites que já estão trabalhando pelos meus clientes</h2>
+          <p className="text-gray-400 max-w-2xl mx-auto">Clique e veja cada site no ar, do jeito que os clientes deles veem.</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {cases.map((case_, index) => (
